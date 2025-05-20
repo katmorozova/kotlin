@@ -18,6 +18,9 @@ fun main(){
     //println("Name: " + name + "\nAge: " + age +"\nSex: " + sex+"\nHeight: " + height+"\nWeight: "+weight)
     println("Name: $name \nAge: $age \nSex: $sex \nHeight: $height \nWeight: $weight")
 
+    // "Name"
+    println("Name: \"$name\" \nAge: $age \nSex: $sex \nHeight: $height \nWeight: $weight")
+
 
 
 }
