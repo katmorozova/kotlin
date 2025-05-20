@@ -1,21 +1,22 @@
 fun main(){
 
     val inputName = "Input your name"
-    println(inputName)
+    print(inputName)
     val name = readln()
     val inputAge = "Input your age"
-    println(inputAge)
+    print(inputAge)
     val age = readln()
     val inputSex = "Input your sex"
-    println(inputSex)
+    print(inputSex)
     val sex = readln()
     val inputHeight = "Input your height"
-    println(inputHeight)
+    print(inputHeight)
     val height = readln()
     val inputWeight = "Input your weight"
-    println(inputWeight)
+    print(inputWeight)
     val weight = readln()
-    println("Name: " + name + "\nAge: " + age +"\nSex: " + sex+"\nHeight: " + height+"\nWeight: "+weight)
+    //println("Name: " + name + "\nAge: " + age +"\nSex: " + sex+"\nHeight: " + height+"\nWeight: "+weight)
+    println("Name: $name \nAge: $age \nSex: $sex \nHeight: $height \nWeight: $weight")
 
 
 
