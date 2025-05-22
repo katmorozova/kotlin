@@ -27,4 +27,9 @@ fun main() {
     d++
     println(d)
 
+    val years = readln().toLong()
+    val result = 365 * 60 *60 * years
+    println(result)
+
+
 }
