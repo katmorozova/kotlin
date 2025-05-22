@@ -3,7 +3,8 @@ fun main() {
     val isGoodWeather = readln().toBoolean()
     println("What time is it?")
     val time = readln().toInt()
-    val isDay = time < 22 && time > 5//false
+    val isDay = time in 6 .. 21//false
+    //val isDay = time < 22 && time > 5//false
     val isNight = time >=22 || time <= 5
 
     if(!isNight && isGoodWeather){
