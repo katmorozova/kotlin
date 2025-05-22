@@ -3,15 +3,26 @@ fun main() {
     println("Enter name: ")
     val searchName = readln()
     var nameFound = false
-
+/*
     var index = 0
     while(index < names.size){
-        println(names[index])
-        if(searchName == names[index]){
+        val name = names[index]
+        println(name)
+        if(searchName == name){
             nameFound = true
             break
         }
         index++
+    }
+
+ */
+
+    for(name in names){
+        println(name)
+        if(searchName == name){
+            nameFound = true
+            break
+        }
     }
     println("Name found: $nameFound")
 }
