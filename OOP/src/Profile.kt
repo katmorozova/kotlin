@@ -1,6 +1,7 @@
 fun main() {
     val first: Person = Person()
     val second: Person = Person()
+
     println("Input 1st name")
     first.name = readln()
 
