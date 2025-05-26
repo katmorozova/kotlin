@@ -6,17 +6,17 @@ fun main() {
      */
 
     println("Input name: ")
-    var name = readln()
+    val name = readln()
     println("Input brand: ")
-    var brand = readln()
+    val brand = readln()
     println("Input size: ")
-    var size = readln().toFloat()
+    val size = readln().toFloat()
     println("Input price: ")
-    var price = readln().toInt()
+    val price = readln().toInt()
 
-    var productCard = ProductCard()
+    val productCard = ProductCard(brand = brand,name = name,size = size,price = price)
     //productCard.init(name,brand,size,price)
-    productCard.init(brand = brand,name = name,size = size,price = price)//cuando ponemos en orden diferente tenemos que recalcar que pertenece a mismo nombre de variable
+   // productCard.init(brand = brand,name = name,size = size,price = price)//cuando ponemos en orden diferente tenemos que recalcar que pertenece a mismo nombre de variable
 
     productCard.printInfo()
 }
