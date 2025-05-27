@@ -1,7 +1,7 @@
 package cats
 
 open class CatsFamily (
-    val legsCount: Int
+    val legsCount: Int = 4
 ){
 
 
