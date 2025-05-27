@@ -1,5 +1,6 @@
+package corporation
+
 import kotlin.random.Random
-import kotlin.random.nextInt
 
 class Consultant(
     val name: String,
@@ -15,7 +16,7 @@ class Consultant(
     }
 
     fun clientIsServed(): Int {
-        val count = Random.nextInt(0, 100)
+        val count = Random.Default.nextInt(0, 100)
         repeat(count){
             println("The customer is served")
         }

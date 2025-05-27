@@ -1,3 +1,5 @@
+package corporation
+
 class Director (
     val name: String,
     val age: Int = 0
@@ -11,6 +13,6 @@ class Director (
 
     fun work(consultant: Consultant){
         val clients = consultant.clientIsServed()
-        println("Consultant ${consultant.name} was served $clients")
+        println("corporation.Consultant ${consultant.name} was served $clients")
     }
 }

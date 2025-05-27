@@ -1,3 +1,5 @@
+package corporation
+
 class Assistant(
     val name: String,
 

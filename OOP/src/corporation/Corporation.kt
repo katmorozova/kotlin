@@ -1,6 +1,10 @@
+package corporation
+
+import corporation.Director
+
 fun main() {
     /*
-    val assistant: Assistant = Assistant()
+    val assistant: corporation.Assistant = corporation.Assistant()
     assistant.bringCoffee(5, "cafe con leche")
 
      */
@@ -16,13 +20,13 @@ fun main() {
 
  */
 
-    //val productCard = ProductCard(brand = brand,name = name,size = size,price = price)
+    //val productCard = corporation.ProductCard(brand = brand,name = name,size = size,price = price)
     //productCard.init(name,brand,size,price)
    // productCard.init(brand = brand,name = name,size = size,price = price)//cuando ponemos en orden diferente tenemos que recalcar que pertenece a mismo nombre de variable
 
     //productCard.printInfo()
 
-    //val assistant = Assistant()
+    //val assistant = corporation.Assistant()
     //assistant.bringCoffee()
 
     val consultant = Consultant("Fernando")
