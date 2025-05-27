@@ -18,4 +18,8 @@ class Assistant(name: String): Worker(name = name) {
         return drink
 
     }
+
+    override fun work() {
+        println("Estoy seviendo cafe para jefe")
+    }
 }

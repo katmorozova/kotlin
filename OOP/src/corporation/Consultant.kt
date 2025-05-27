@@ -19,4 +19,8 @@ class Consultant(name: String, age: Int): Worker(name = name, age = age) {
         }
         return count
     }
+
+    override fun work() {
+        println("Estoy ayudando con una consulta a un cliente")
+    }
 }
