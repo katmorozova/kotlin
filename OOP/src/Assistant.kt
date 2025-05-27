@@ -1,6 +1,6 @@
 class Assistant {
 
-    fun bringCoffee(count: Int, drink: String){
+    fun bringCoffee(count: Int = 1, drink: String = "Cafe con leche desoja"){
         repeat(count){
             println("Jefe ha pedido $drink")
             println("Tengo que levantar")
