@@ -29,12 +29,13 @@ fun main() {
     //val assistant = corporation.Assistant()
     //assistant.bringCoffee()
 
-    val consultant = Consultant("Fernando")
-    consultant.sayHello()
+    val consultant: Worker = Consultant("Max", 34)
+    (consultant as Consultant).sayHello()
 
-    val director = Director("Tony", 45)
-    val assistant = Assistant("John")
-    director.takeCoffee(assistant)
+    val director: Worker = Director("Tony", 45)
+    val assistant: Worker = Assistant("John")
+    (assistant as Assistant).bringCoffee()
+    (director as Director).takeCoffee(assistant as Assistant)
     consultant.clientIsServed()
     director.work(consultant)
 }
