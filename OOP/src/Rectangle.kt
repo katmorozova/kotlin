@@ -8,7 +8,12 @@ class Rectangle {
         this.height = height
     }
 
-    fun draw(width: Int, height: Int){
+    constructor(size: Int){
+        this.width = size
+        this.height = size
+    }
+
+    fun draw(){
         repeat(height){
             repeat(width){
                 print("* ")
