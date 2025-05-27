@@ -1,3 +1,5 @@
+package profile
+
 fun main() {
 
     println("Input 1st name")
