@@ -25,4 +25,6 @@ fun main() {
     val assistant = Assistant()
     assistant.bringCoffee()
 
+    val consultant = Consultant("Fernando")
+    consultant.sayHello()
 }
