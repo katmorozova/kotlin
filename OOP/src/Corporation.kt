@@ -22,9 +22,13 @@ fun main() {
 
     //productCard.printInfo()
 
-    val assistant = Assistant()
-    assistant.bringCoffee()
+    //val assistant = Assistant()
+    //assistant.bringCoffee()
 
     val consultant = Consultant("Fernando")
     consultant.sayHello()
+
+    val director = Director("Tony", 45)
+    val assistant = Assistant("John", "Cafe con leche")
+    director.takeCoffee(assistant)
 }
