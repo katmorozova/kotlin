@@ -8,4 +8,9 @@ class Director (
         println("Thanks ${assistant.name}! The $drink is very tasty.")
     }
 
+
+    fun work(consultant: Consultant){
+        val clients = consultant.clientIsServed()
+        println("Consultant ${consultant.name} was served $clients")
+    }
 }

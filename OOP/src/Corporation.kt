@@ -29,6 +29,8 @@ fun main() {
     consultant.sayHello()
 
     val director = Director("Tony", 45)
-    val assistant = Assistant("John", "Cafe con leche")
+    val assistant = Assistant("John")
     director.takeCoffee(assistant)
+    consultant.clientIsServed()
+    director.work(consultant)
 }

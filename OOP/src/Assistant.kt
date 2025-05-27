@@ -1,6 +1,6 @@
 class Assistant(
     val name: String,
-    val drink: String
+
 ) {
 
     fun bringCoffee(count: Int = 1, drink: String = "Cafe con leche desoja"): String{
