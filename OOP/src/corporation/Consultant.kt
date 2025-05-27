@@ -2,10 +2,7 @@ package corporation
 
 import kotlin.random.Random
 
-class Consultant(
-    val name: String,
-    val age: Int = 23
-) {
+class Consultant(name: String, age: Int): Worker(name = name, age = age) {
 
     fun sayHello(){
         if(age == 0){
