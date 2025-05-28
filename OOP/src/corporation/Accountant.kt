@@ -7,6 +7,18 @@ class Accountant(name: String, age: Int): Worker(name, age) {
 
     override fun work() {
         super.work()
+
+        var item = -1
+        while(true){
+            println("Enter the operation code: 0 - exit, 1 - register new item:")
+            item = readln().toInt()
+            when(item){
+                0 -> break
+                1 -> registerNewItem()
+
+            }
+        }
+        /*
         do {
             println("\nEnter the operation code: 0 - exit, 1 - register new item:")
             val item = readln().toInt()
@@ -55,5 +67,49 @@ class Accountant(name: String, age: Int): Worker(name, age) {
 
         }while (item == 1)
 
+         */
+
+    }
+
+
+    fun registerNewItem(){
+        println("Enter the product type: 0 - Food, 1 - Appliances, 2 - Shoes:")
+        val productType = readln().toInt()
+        println("Enter the product name: ")
+        val productName = readln()
+        println("Enter the brand name: ")
+        val productBrand = readln()
+        println("Enter price: ")
+        val productPrice = readln().toInt()
+        val card = when(productType){
+            0 -> {
+                println("Enter the caloric: ")
+                val caloric = readln().toInt()
+                Food(name = productName,
+                    brand = productBrand,
+                    caloric = caloric,
+                    price = productPrice
+                )
+            }
+            1 -> {
+                println("Enter the power: ")
+                val power = readln().toInt()
+                Appliances(name = productName,
+                    brand = productBrand,
+                    power = power,
+                    price = productPrice
+                )
+            }
+            else -> {
+                println("Enter the size: ")
+                val size = readln().toInt()
+                Shoes(name = productName,
+                    brand = productBrand,
+                    size = size,
+                    price = productPrice
+                )
+            }
+        }
+        card.printInfo()
     }
 }

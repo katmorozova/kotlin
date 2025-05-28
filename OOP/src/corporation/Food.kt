@@ -2,7 +2,7 @@ package corporation
 
 class Food(name: String,
            brand: String,
-           val caloric: Float,
+           val caloric: Int,
            price: Int
 ): ProductCard(name, brand, price) {
 
@@ -10,8 +10,7 @@ class Food(name: String,
 
     override fun printInfo() {
         super.printInfo()
-        println("Enter caloric: ")
-        val caloric = readln()
+
         println("Caloric: $caloric")
     }
 }

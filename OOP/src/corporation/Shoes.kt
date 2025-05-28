@@ -2,7 +2,7 @@ package corporation
 
 class Shoes (name: String,
              brand: String,
-             val size: Float,
+             val size: Int,
              price: Int
         ): ProductCard(name, brand, price) {
 
@@ -10,8 +10,7 @@ class Shoes (name: String,
 
     override fun printInfo() {
         super.printInfo()
-        println("Enter size: ")
-        val size = readln()
+
         println("Size: $size")
     }
 }

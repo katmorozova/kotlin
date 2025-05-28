@@ -2,7 +2,7 @@ package corporation
 
 class Appliances(name: String,
                  brand: String,
-                 val power: Float,
+                 val power: Int,
                  price: Int
 ): ProductCard(name, brand, price) {
 
@@ -10,8 +10,7 @@ class Appliances(name: String,
 
     override fun printInfo() {
         super.printInfo()
-        println("Enter power: ")
-        val power = readln()
+
         println("Power: $power")
     }
 }
