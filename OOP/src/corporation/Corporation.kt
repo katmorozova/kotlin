@@ -41,21 +41,25 @@ fun main() {
  */
 
     val director: Director = Director("Tony", 45)
+    val accountant: Accountant = Accountant(name = "Helen", 34)
     val consultant: Consultant = Consultant("Max", 34)
     val assistant: Assistant = Assistant("John")
 
    // val employees = listOf<Any>(director, consultant, assistant, "Hello")//todos los clases en Kotlin se heredan de clase Any
-    val employees = listOf<Worker>(director, consultant, assistant)
+    val employees = listOf<Worker>(director, consultant, assistant, accountant)
     for(employee in employees){
         employee.work()
     }
 
+/*
     val shoes: Shoes = Shoes("bambas", "nike", 34f, 232)
     val food: Food = Food("platano", "canarias", 212f, 3)
     val appliances: Appliances = Appliances("secador", "dayson", 34.3f, 232 )
     shoes.printInfo()
     food.printInfo()
     appliances.printInfo()
+
+ */
 
 
 }

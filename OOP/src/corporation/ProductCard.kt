@@ -45,7 +45,15 @@ open class ProductCard(
 
         */
 
+        println("Enter name: ")
+        val name = readln()
+        println("Enter brand: ")
+        val brand = readln()
+        println("Enter price: ")
+        val price = readln()
+
         //println("Name: $name Brand: $brand Size: $size Price: $price")
         print("Name: $name Brand: $brand Price: $price ")
     }
+
 }

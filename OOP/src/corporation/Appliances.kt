@@ -10,6 +10,8 @@ class Appliances(name: String,
 
     override fun printInfo() {
         super.printInfo()
+        println("Enter power: ")
+        val power = readln()
         println("Power: $power")
     }
 }

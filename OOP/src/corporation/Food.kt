@@ -10,6 +10,8 @@ class Food(name: String,
 
     override fun printInfo() {
         super.printInfo()
+        println("Enter caloric: ")
+        val caloric = readln()
         println("Caloric: $caloric")
     }
 }

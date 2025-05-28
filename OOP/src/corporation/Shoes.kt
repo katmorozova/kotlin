@@ -10,6 +10,8 @@ class Shoes (name: String,
 
     override fun printInfo() {
         super.printInfo()
+        println("Enter size: ")
+        val size = readln()
         println("Size: $size")
     }
 }
