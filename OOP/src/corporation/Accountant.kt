@@ -8,14 +8,22 @@ class Accountant(name: String, age: Int): Worker(name, age) {
     override fun work() {
         super.work()
 
-        var item = -1
+        val operationTypes = OperationType.entries
         while(true){
-            println("Enter the operation code: 0 - exit, 1 - register new item:")
-            item = readln().toInt()
-            when(item){
-                0 -> break
-                1 -> registerNewItem()
-
+            print("Enter the operation type: ")
+            for ((index,type) in operationTypes.withIndex()){ //cuando queremos obtener tambien index(numero)
+                print("$index - ${type.title}")
+                if (index < operationTypes.size){
+                    print(", ")
+                }else{
+                    print(": ")
+                }
+            }
+            val operationIndex = readln().toInt()
+            val operationType = operationTypes[operationIndex]
+            when(operationType){
+                OperationType.EXIT -> break
+                OperationType.REGISTER -> registerNewItem()
             }
         }
         /*
@@ -74,15 +82,6 @@ class Accountant(name: String, age: Int): Worker(name, age) {
 
     fun registerNewItem(){
         val productTypes = ProductType.entries
-        print("Enter the product type: ")
-        for ((index,type) in productTypes.withIndex()){ //cuando queremos obtener tambien index(numero)
-            print("$index - ${type.title}")
-            if (index < productTypes.size){
-                print(", ")
-            }else{
-                print(": ")
-            }
-        }
 
         //println("Enter the product type: 0 - ${productTypes[0].title}, 1 - ${productTypes[1].title}, 2 - ${productTypes[2].title}:")
         val productTypeIndex = readln().toInt()
