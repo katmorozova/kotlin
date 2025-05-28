@@ -50,4 +50,12 @@ fun main() {
         employee.work()
     }
 
+    val shoes: Shoes = Shoes("bambas", "nike", 34f, 232)
+    val food: Food = Food("platano", "canarias", 212f, 3)
+    val appliances: Appliances = Appliances("secador", "dayson", 34.3f, 232 )
+    shoes.printInfo()
+    food.printInfo()
+    appliances.printInfo()
+
+
 }
