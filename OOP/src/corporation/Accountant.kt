@@ -73,8 +73,21 @@ class Accountant(name: String, age: Int): Worker(name, age) {
 
 
     fun registerNewItem(){
-        println("Enter the product type: 0 - Food, 1 - Appliances, 2 - Shoes:")
-        val productType = readln().toInt()
+        val productTypes = ProductType.entries
+        print("Enter the product type: ")
+        for ((index,type) in productTypes.withIndex()){ //cuando queremos obtener tambien index(numero)
+            print("$index - ${type.title}")
+            if (index < productTypes.size){
+                print(", ")
+            }else{
+                print(": ")
+            }
+        }
+
+        //println("Enter the product type: 0 - ${productTypes[0].title}, 1 - ${productTypes[1].title}, 2 - ${productTypes[2].title}:")
+        val productTypeIndex = readln().toInt()
+        val productType: ProductType = productTypes[productTypeIndex]
+
         println("Enter the product name: ")
         val productName = readln()
         println("Enter the brand name: ")
@@ -82,6 +95,9 @@ class Accountant(name: String, age: Int): Worker(name, age) {
         println("Enter price: ")
         val productPrice = readln().toInt()
         val card = when(productType){
+
+
+            /*
             0 -> {
                 println("Enter the caloric: ")
                 val caloric = readln().toInt()
@@ -101,6 +117,35 @@ class Accountant(name: String, age: Int): Worker(name, age) {
                 )
             }
             else -> {
+                println("Enter the size: ")
+                val size = readln().toInt()
+                Shoes(name = productName,
+                    brand = productBrand,
+                    size = size,
+                    price = productPrice
+                )
+            }
+
+             */
+            ProductType.FOOD -> {
+                println("Enter the caloric: ")
+                val caloric = readln().toInt()
+                Food(name = productName,
+                    brand = productBrand,
+                    caloric = caloric,
+                    price = productPrice
+                )
+            }
+            ProductType.APPLIANCES -> {
+                println("Enter the power: ")
+                val power = readln().toInt()
+                Appliances(name = productName,
+                    brand = productBrand,
+                    power = power,
+                    price = productPrice
+                )
+            }
+            ProductType.SHOES -> {
                 println("Enter the size: ")
                 val size = readln().toInt()
                 Shoes(name = productName,
