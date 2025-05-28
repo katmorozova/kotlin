@@ -154,6 +154,8 @@ class Accountant(name: String, age: Int): Worker(name, age) {
                     price = productPrice
                 )
             }
+
+
         }
         card.printInfo()
     }
