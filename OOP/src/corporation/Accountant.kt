@@ -4,19 +4,19 @@ class Accountant(name: String, age: Int): Worker(name, age) {
 
     //val type: Int = readln().toInt()
 
+    //val items = listOf<ProductCard>()//colleccion de datos que no se puede modificar, es decir no se puede añadir datos
+    val items = mutableListOf<ProductCard>()
 
     override fun work() {
-        super.work()
-
         val operationTypes = OperationType.entries
         while(true){
             print("Enter the operation type: ")
             for ((index,type) in operationTypes.withIndex()){ //cuando queremos obtener tambien index(numero)
                 print("$index - ${type.title}")
                 if (index < operationTypes.size){
-                    print(", ")
-                }else{
                     print(": ")
+                }else{
+                    print(", ")
                 }
             }
             val operationIndex = readln().toInt()
@@ -24,6 +24,8 @@ class Accountant(name: String, age: Int): Worker(name, age) {
             when(operationType){
                 OperationType.EXIT -> break
                 OperationType.REGISTER -> registerNewItem()
+                OperationType.SHOW_ALL_ITEMS -> showAllItems()
+
             }
         }
         /*
@@ -79,11 +81,23 @@ class Accountant(name: String, age: Int): Worker(name, age) {
 
     }
 
-
+    fun showAllItems(){
+        for(item in items){
+            item.printInfo()
+        }
+    }
     fun registerNewItem(){
         val productTypes = ProductType.entries
-
+        println("Enter the product type: ")
         //println("Enter the product type: 0 - ${productTypes[0].title}, 1 - ${productTypes[1].title}, 2 - ${productTypes[2].title}:")
+        for ((index,type) in productTypes.withIndex()){ //cuando queremos obtener tambien index(numero)
+            print("$index - ${type.title}")
+            if (index < productTypes.size){
+                print(": ")
+            }else{
+                print(", ")
+            }
+        }
         val productTypeIndex = readln().toInt()
         val productType: ProductType = productTypes[productTypeIndex]
 
@@ -156,6 +170,7 @@ class Accountant(name: String, age: Int): Worker(name, age) {
 
 
         }
-        card.printInfo()
+        items.add(card)
+        //card.printInfo()
     }
 }
