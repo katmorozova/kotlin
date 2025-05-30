@@ -99,6 +99,7 @@ class Accountant(name: String, age: Int): Worker(name, age) {
             item.printInfo()
         }
         */
+        val cards = mutableListOf<ProductCard>()//creado collecion de los productCards
 //Coger los datos desde product_card.txt y separarles por el simbolo \n
         val content = file.readText().trim()
         val cardsAsString = content.split("\n")
@@ -128,6 +129,7 @@ class Accountant(name: String, age: Int): Worker(name, age) {
             }
             productCard.printInfo()
             //items.add(productCard)
+            cards.add(productCard)
         }
 
     }
