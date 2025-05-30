@@ -86,7 +86,7 @@ class Accountant(name: String, age: Int): Worker(name, age) {
     }
 
     fun removeProductCard(){
-
+        val cards = loadAllCards()
     }
 
     fun loadAllCards(): MutableList<ProductCard> {
