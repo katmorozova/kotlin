@@ -28,9 +28,10 @@ class Accountant(name: String, age: Int): Worker(name, age) {
                 OperationType.EXIT -> break
                 OperationType.REGISTER -> registerNewItem()
                 OperationType.SHOW_ALL_ITEMS -> showAllItems()
-
+                OperationType.REMOVE_PRODUCT_CARD -> removeProductCard()
             }
         }
+
         /*
         do {
             println("\nEnter the operation code: 0 - exit, 1 - register new item:")
@@ -81,6 +82,14 @@ class Accountant(name: String, age: Int): Worker(name, age) {
         }while (item == 1)
 
          */
+
+    }
+
+    fun removeProductCard(){
+
+    }
+
+    fun loadAllCards(){
 
     }
 
