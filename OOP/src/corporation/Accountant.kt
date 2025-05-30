@@ -89,8 +89,40 @@ class Accountant(name: String, age: Int): Worker(name, age) {
 
     }
 
-    fun loadAllCards(){
+    fun loadAllCards(): MutableList<ProductCard> {
+        val cards: MutableList<ProductCard> = mutableListOf<ProductCard>()//creado collecion de los productCards
+       //Coger los datos desde product_card.txt y separarles por el simbolo \n
+        val content = file.readText().trim()
+        val cardsAsString = content.split("\n")
+        for(cardAsString in cardsAsString){
+            val properties = cardAsString.split("%")
+            val name = properties[0]
+            val brand = properties[1]
+            val price = properties[2].toInt()
+            //val type = properties[properties.size -1]
+            val type = properties.last()
+            val productType = ProductType.valueOf(type)
+            val productCard = when(productType){
+                ProductType.FOOD -> {
+                    val caloric = properties[3].toInt()
+                    Food(name, brand,caloric, price)
+                }
+                ProductType.APPLIANCES -> {
+                    val power = properties[3].toInt()
+                    Appliances(name, brand, power, price)
 
+                }
+                ProductType.SHOES -> {
+                    val size = properties[3].toInt()
+                    Shoes(name, brand, size, price)
+
+                }
+            }
+            productCard.printInfo()
+            //items.add(productCard)
+            cards.add(productCard)
+        }
+        return cards
     }
 
     fun showAllItems(){
