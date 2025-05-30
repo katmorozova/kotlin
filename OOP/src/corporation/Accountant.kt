@@ -118,8 +118,6 @@ class Accountant(name: String, age: Int): Worker(name, age) {
 
                 }
             }
-            productCard.printInfo()
-            //items.add(productCard)
             cards.add(productCard)
         }
         return cards
@@ -161,7 +159,6 @@ class Accountant(name: String, age: Int): Worker(name, age) {
             }
             productCard.printInfo()
             //items.add(productCard)
-            cards.add(productCard)
         }
 
     }
