@@ -104,6 +104,35 @@ class Accountant(name: String, age: Int): Worker(name, age) {
             }
         }
         file.writeText("")//reescribimos texto en file
+        for (card in cards){
+            saveProductCardToFile(card)
+        }
+    }
+
+    fun saveProductCardToFile(productCard: ProductCard){
+        file.appendText("${productCard.name}%")
+        file.appendText("${productCard.brand}%")
+        file.appendText("${productCard.price}%")
+        /*
+        if (productCard is Food){ //Comprobamos si pertenece a tipo Food
+            (productCard as Food).caloric //hacemos down-cast
+        }
+         */
+        when (productCard) {
+            is Food -> { //Comprobamos si pertenece a tipo Food
+                //productCard.caloric //hacemos down-cast
+                val caloric = readln().toInt()
+                file.appendText("$caloric%${ProductType.FOOD}\n")
+            }
+            is Shoes -> {
+                val size = readln().toInt()
+                file.appendText("$size%${ProductType.SHOES}\n")
+            }
+            is Appliances -> {
+                val power = readln().toInt()
+                file.appendText("$power%${ProductType.APPLIANCES}\n")
+            }
+        }
     }
 
     fun loadAllCards(): MutableList<ProductCard> {
@@ -206,8 +235,6 @@ class Accountant(name: String, age: Int): Worker(name, age) {
         //ProductType.valueOf("FOOD")
         //val card = when(productType){
         when(productType){
-
-
             /*
             0 -> {
                 println("Enter the caloric: ")
@@ -242,34 +269,18 @@ class Accountant(name: String, age: Int): Worker(name, age) {
                 println("Enter the caloric: ")
                 val caloric = readln().toInt()
                 file.appendText("$caloric%")
-                Food(name = productName,
-                    brand = productBrand,
-                    caloric = caloric,
-                    price = productPrice
-                )
+
             }
             ProductType.APPLIANCES -> {
                 println("Enter the power: ")
                 val power = readln().toInt()
                 file.appendText("$power%")
-                Appliances(name = productName,
-                    brand = productBrand,
-                    power = power,
-                    price = productPrice
-                )
             }
             ProductType.SHOES -> {
                 println("Enter the size: ")
                 val size = readln().toInt()
                 file.appendText("$size%")
-                Shoes(name = productName,
-                    brand = productBrand,
-                    size = size,
-                    price = productPrice
-                )
             }
-
-
         }
         file.appendText("$productType\n")
         //items.add(card)
