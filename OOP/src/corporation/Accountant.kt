@@ -86,7 +86,24 @@ class Accountant(name: String, age: Int): Worker(name, age) {
     }
 
     fun removeProductCard(){
-        val cards = loadAllCards()
+        val cards: MutableList<ProductCard> = loadAllCards()
+        println("Enter name of card for removing: ")
+        val name = readln()
+        /*
+        for ((index, card) in cards.withIndex()){
+            if (card.name == name){
+                cards.removeAt(index)
+                break
+            }
+        }
+         */
+        for (card in cards){
+            if (card.name == name) {
+                cards.remove(card)
+                break
+            }
+        }
+        file.writeText("")//reescribimos texto en file
     }
 
     fun loadAllCards(): MutableList<ProductCard> {
