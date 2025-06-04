@@ -180,9 +180,10 @@ class Accountant(name: String, age: Int): Worker(name, age) {
             item.printInfo()
         }
         */
+        /*
         val cards = mutableListOf<ProductCard>()//creado collecion de los productCards
 
-//Coger los datos desde product_card.txt y separarles por el simbolo \n
+        //Coger los datos desde product_card.txt y separarles por el simbolo \n
         val content = file.readText().trim()
 
         if (content.isEmpty()){
@@ -217,7 +218,14 @@ class Accountant(name: String, age: Int): Worker(name, age) {
             //items.add(productCard)
         }
 
+         */
+        val cards = loadAllCards()
+        for (card in cards){
+            card.printInfo()
+        }
+
     }
+
     fun registerNewItem(){
         val productTypes = ProductType.entries
         println("Enter the product type: ")
