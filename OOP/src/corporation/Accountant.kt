@@ -134,6 +134,7 @@ class Accountant(name: String, age: Int): Worker(name, age) {
                 file.appendText("$power%")
             }
         }
+        file.appendText("${productCard.productType}\n")
     }
 
     fun loadAllCards(): MutableList<ProductCard> {
