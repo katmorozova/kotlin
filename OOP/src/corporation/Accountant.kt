@@ -245,16 +245,16 @@ class Accountant(name: String, age: Int): Worker(name, age) {
 
         println("Enter the product name: ")
         val productName = readln()
-        file.appendText("$productName%")
+        //file.appendText("$productName%")
         println("Enter the brand name: ")
         val productBrand = readln()
-        file.appendText("$productBrand%")
+        //file.appendText("$productBrand%")
         println("Enter price: ")
         val productPrice = readln().toInt()
-        file.appendText("$productPrice%")
+        //file.appendText("$productPrice%")
         //ProductType.valueOf("FOOD")
         //val card = when(productType){
-        when(productType){
+        val card = when(productType){
             /*
             0 -> {
                 println("Enter the caloric: ")
@@ -302,7 +302,7 @@ class Accountant(name: String, age: Int): Worker(name, age) {
                 file.appendText("$size%")
             }
         }
-        file.appendText("$productType\n")
+        //file.appendText("$productType\n")
         //items.add(card)
         //card.printInfo()
     }
