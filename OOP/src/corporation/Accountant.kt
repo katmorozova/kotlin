@@ -120,15 +120,18 @@ class Accountant(name: String, age: Int): Worker(name, age) {
             is Food -> { //Comprobamos si pertenece a tipo Food
                 //productCard.caloric //hacemos down-cast
                 val caloric = readln().toInt()
-                file.appendText("$caloric%${ProductType.FOOD}\n")
+                //file.appendText("$caloric%${ProductType.FOOD}\n")
+                file.appendText("$caloric%")
             }
             is Shoes -> {
                 val size = readln().toInt()
-                file.appendText("$size%${ProductType.SHOES}\n")
+                //file.appendText("$size%${ProductType.SHOES}\n")
+                file.appendText("$size%")
             }
             is Appliances -> {
                 val power = readln().toInt()
-                file.appendText("$power%${ProductType.APPLIANCES}\n")
+                //file.appendText("$power%${ProductType.APPLIANCES}\n")
+                file.appendText("$power%")
             }
         }
     }
