@@ -3,7 +3,8 @@ package corporation
 open class ProductCard(
     val name: String,
     val brand: String,
-    val price: Int
+    val price: Int,
+    val productType: ProductType
 ) {
     /*
     val name: String
@@ -46,7 +47,7 @@ open class ProductCard(
         */
 
         //println("Name: $name Brand: $brand Size: $size Price: $price")
-        print("Name: $name Brand: $brand Price: $price ")
+        print("Name: $name Brand: $brand Price: $price Product type: ${productType.title}")
     }
 
 }
