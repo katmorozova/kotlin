@@ -110,9 +110,7 @@ class Accountant(name: String, age: Int): Worker(name, age) {
     }
 
     fun saveProductCardToFile(productCard: ProductCard){
-        file.appendText("${productCard.name}%")
-        file.appendText("${productCard.brand}%")
-        file.appendText("${productCard.price}%")
+        file.appendText("${productCard.name}%${productCard.brand}%${productCard.price}%")
         /*
         if (productCard is Food){ //Comprobamos si pertenece a tipo Food
             (productCard as Food).caloric //hacemos down-cast
