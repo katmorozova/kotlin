@@ -4,7 +4,7 @@ class Shoes (name: String,
              brand: String,
              val size: Int,
              price: Int
-        ): ProductCard(name, brand, price) {
+        ): ProductCard(name, brand, price, ProductType.SHOES) {
 
 
 

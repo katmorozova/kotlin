@@ -4,7 +4,7 @@ class Food(name: String,
            brand: String,
            val caloric: Int,
            price: Int
-): ProductCard(name, brand, price) {
+): ProductCard(name, brand, price, ProductType.FOOD) {
 
 
 

@@ -4,7 +4,7 @@ class Appliances(name: String,
                  brand: String,
                  val power: Int,
                  price: Int
-): ProductCard(name, brand, price) {
+): ProductCard(name, brand, price, ProductType.APPLIANCES) {
 
 
 
