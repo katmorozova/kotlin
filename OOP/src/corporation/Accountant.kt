@@ -139,6 +139,11 @@ class Accountant(name: String, age: Int): Worker(name, age) {
         val cards: MutableList<ProductCard> = mutableListOf<ProductCard>()//creado collecion de los productCards
        //Coger los datos desde product_card.txt y separarles por el simbolo \n
         val content = file.readText().trim()
+
+        if (content.isEmpty()){
+            return cards
+        }
+
         val cardsAsString = content.split("\n")
         for(cardAsString in cardsAsString){
             val properties = cardAsString.split("%")
