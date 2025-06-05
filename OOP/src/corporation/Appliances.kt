@@ -2,8 +2,8 @@ package corporation
 
 class Appliances(name: String,
                  brand: String,
-                 val power: Int,
-                 price: Int
+                 price: Int,
+                 val power: Int
 ): ProductCard(name, brand, price, ProductType.APPLIANCES) {
 
 

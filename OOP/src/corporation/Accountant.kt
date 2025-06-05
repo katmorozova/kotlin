@@ -289,17 +289,19 @@ class Accountant(name: String, age: Int): Worker(name, age) {
                 println("Enter the caloric: ")
                 val caloric = readln().toInt()
                 file.appendText("$caloric%")
-
+                Food(productName, productBrand, productPrice, caloric)
             }
             ProductType.APPLIANCES -> {
                 println("Enter the power: ")
                 val power = readln().toInt()
                 file.appendText("$power%")
+                Appliances(productName, productBrand, productPrice, power)
             }
             ProductType.SHOES -> {
                 println("Enter the size: ")
                 val size = readln().toInt()
                 file.appendText("$size%")
+                Shoes(productName, productBrand, productPrice, size)
             }
         }
         //file.appendText("$productType\n")

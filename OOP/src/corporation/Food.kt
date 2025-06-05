@@ -2,8 +2,8 @@ package corporation
 
 class Food(name: String,
            brand: String,
-           val caloric: Int,
-           price: Int
+           price: Int,
+           val caloric: Int
 ): ProductCard(name, brand, price, ProductType.FOOD) {
 
 

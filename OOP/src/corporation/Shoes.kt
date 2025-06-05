@@ -2,8 +2,8 @@ package corporation
 
 class Shoes (name: String,
              brand: String,
-             val size: Int,
-             price: Int
+             price: Int,
+             val size: Int
         ): ProductCard(name, brand, price, ProductType.SHOES) {
 
 
