@@ -7,7 +7,7 @@ class Accountant(name: String, age: Int): Worker(name, age) {
     //val type: Int = readln().toInt()
 
     //val items = listOf<ProductCard>()//colleccion de datos que no se puede modificar, es decir no se puede añadir datos
-    val items = mutableListOf<ProductCard>()
+    //val items = mutableListOf<ProductCard>()
     val file = File("product_cards.txt")
 
     override fun work() {
