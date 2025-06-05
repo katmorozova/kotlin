@@ -2,7 +2,7 @@ package corporation
 
 import java.io.File
 
-class Accountant(name: String, age: Int): Worker(name, age) {
+class Accountant(id: Int, name: String, age: Int): Worker(id, name, age) {
 
     //val type: Int = readln().toInt()
 
@@ -29,6 +29,9 @@ class Accountant(name: String, age: Int): Worker(name, age) {
                 OperationType.REGISTER -> registerNewItem()
                 OperationType.SHOW_ALL_ITEMS -> showAllItems()
                 OperationType.REMOVE_PRODUCT_CARD -> removeProductCard()
+                OperationType.REGISTER_NEW_EMPLOYEE -> TODO()
+                OperationType.FIRE_EMPLOYEE -> TODO()
+                OperationType.SHOW_ALL_EMPLOYEES -> TODO()
             }
         }
 
@@ -257,7 +260,7 @@ class Accountant(name: String, age: Int): Worker(name, age) {
         val card = when(productType){
             /*
             0 -> {
-                println("Enter the caloric: ")
+                println(Enter the caloric: )
                 val caloric = readln().toInt()
                 Food(name = productName,
                     brand = productBrand,
