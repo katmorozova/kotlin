@@ -2,7 +2,7 @@ package corporation
 
 import java.io.File
 
-class Accountant(id: Int, name: String, age: Int): Worker(id, name, age) {
+class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerType.ACCOUNTANT) {
 
     //val type: Int = readln().toInt()
 
@@ -29,7 +29,7 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age) {
                 OperationType.REGISTER -> registerNewItem()
                 OperationType.SHOW_ALL_ITEMS -> showAllItems()
                 OperationType.REMOVE_PRODUCT_CARD -> removeProductCard()
-                OperationType.REGISTER_NEW_EMPLOYEE -> TODO()
+                OperationType.REGISTER_NEW_EMPLOYEE -> registerNewWorker()
                 OperationType.FIRE_EMPLOYEE -> TODO()
                 OperationType.SHOW_ALL_EMPLOYEES -> TODO()
             }
@@ -311,5 +311,102 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age) {
         //items.add(card)
         //card.printInfo()
         saveProductCardToFile(card)
+    }
+
+
+    fun registerNewWorker(){
+        val workerTypes = WorkerType.entries
+        println("Choose position: ")
+        for ((index,type) in workerTypes.withIndex()){ //cuando queremos obtener tambien index(numero)
+            print("$index - ${type.title}")
+            if (index < workerTypes.size){
+                print(": ")
+            }else{
+                print(", ")
+            }
+        }
+        val workerTypeIndex = readln().toInt()
+        val workerType: WorkerType = workerTypes[workerTypeIndex]
+
+        println("Enter worker´s id: ")
+        val workerId = readln().toInt()
+        println("Enter worker´s name: ")
+        val workerName = readln()
+        println("Enter worker´s age: ")
+        val workerAge = readln().toInt()
+
+        val card = when(workerType){
+            WorkerType.DIRECTOR -> {
+                Director(workerId, workerName, workerAge)
+            }
+            WorkerType.ACCOUNTANT -> {
+                Accountant(workerId, workerName, workerAge)
+            }
+            WorkerType.ASSISTANT -> {
+                Assistant(workerId, workerName, workerAge)
+            }
+            WorkerType.CONSULTANT -> {
+                Consultant(workerId, workerName, workerAge)
+            }
+        }
+    }
+
+
+
+    fun saveWorkerListToFile(worker: Worker) {
+        file.appendText("${worker.id}%${worker.name}%${worker.age}%")
+
+        when (worker) {
+            is Director -> { //Comprobamos si pertenece a tipo Food
+                file.appendText("${worker.workerType}\n")
+            }
+
+            is Shoes -> {
+                file.appendText("${worker.workerType}\n")
+            }
+
+            is Appliances -> {
+                file.appendText("${worker.workerType}\n")
+            }
+        }
+
+
+
+        fun loadAllList(): MutableList<Worker> {
+            val workers: MutableList<Worker> = mutableListOf<Worker>()//creado collecion
+            val content = file.readText().trim()
+
+            if (content.isEmpty()) {
+                return workers
+            }
+
+            val listsAsString = content.split("\n")
+            for (listAsString in listsAsString) {
+                val properties = listAsString.split("%")
+                val id = properties[0].toInt()
+                val name = properties[1]
+                val age = properties[2].toInt()
+
+                val worker = when (workerType) {
+                    WorkerType.DIRECTOR -> {
+                        Director(id, name, age)
+                    }
+
+                    WorkerType.ACCOUNTANT -> {
+                        Accountant(id, name, age)
+                    }
+
+                    WorkerType.ASSISTANT -> {
+                        Assistant(id, name, age)
+                    }
+
+                    WorkerType.CONSULTANT -> {
+                        Consultant(id, name, age)
+                    }
+                }
+                workers.add(workerType)
+            }
+            return workers
+        }
     }
 }

@@ -1,6 +1,6 @@
 package corporation
 
-class Director (id: Int, name: String, age: Int): Worker(id = id, name = name, age = age) {
+class Director (id: Int, name: String, age: Int): Worker(id = id, name = name, age = age, WorkerType.DIRECTOR) {
 
     fun takeCoffee(assistant: Assistant){
         val drink: String = assistant.bringCoffee()
