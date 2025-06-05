@@ -13,13 +13,13 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age) {
     override fun work() {
         val operationTypes = OperationType.entries
         while(true){
-            print("Enter the operation type: ")
+            print("Enter the operation type:\n ")
             for ((index,type) in operationTypes.withIndex()){ //cuando queremos obtener tambien index(numero)
                 print("$index - ${type.title}")
                 if (index < operationTypes.size){
-                    print(": ")
+                    print(":\n ")
                 }else{
-                    print(", ")
+                    print(",\n ")
                 }
             }
             val operationIndex = readln().toInt()

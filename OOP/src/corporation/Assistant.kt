@@ -1,6 +1,6 @@
 package corporation
 
-class Assistant(name: String): Worker(name = name) {
+class Assistant(id: Int, name: String): Worker(id = id, name = name) {
 
     fun bringCoffee(count: Int = 1, drink: String = "Cafe con leche desoja"): String{
         repeat(count){

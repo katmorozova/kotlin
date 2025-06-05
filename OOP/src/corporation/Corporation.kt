@@ -41,10 +41,10 @@ fun main() {
     director.work(consultant)
  */
 
-    val director: Director = Director("Tony", 45)
-    val accountant: Accountant = Accountant(name = "Helen", 34)
-    val consultant: Consultant = Consultant("Max", 34)
-    val assistant: Assistant = Assistant("John")
+    val director: Director = Director(0,"Tony", 45)
+    val accountant: Accountant = Accountant(1, name = "Helen", 34)
+    val consultant: Consultant = Consultant(3,"Max", 34)
+    val assistant: Assistant = Assistant(2,"John")
 
    // val employees = listOf<Any>(director, consultant, assistant, "Hello")//todos los clases en Kotlin se heredan de clase Any
     val employees = listOf<Worker>(director, consultant, assistant, accountant)
