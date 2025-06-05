@@ -307,5 +307,6 @@ class Accountant(name: String, age: Int): Worker(name, age) {
         //file.appendText("$productType\n")
         //items.add(card)
         //card.printInfo()
+        saveProductCardToFile(card)
     }
 }
