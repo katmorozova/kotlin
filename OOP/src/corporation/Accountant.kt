@@ -8,8 +8,8 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerT
 
     //val items = listOf<ProductCard>()//colleccion de datos que no se puede modificar, es decir no se puede añadir datos
     //val items = mutableListOf<ProductCard>()
-    val file = File("product_cards.txt")
-    val workersList = File("workers_cards.txt")
+    private val file = File("product_cards.txt")
+    private val workersList = File("workers_cards.txt")
 
     override fun work() {
         val operationTypes = OperationType.entries
