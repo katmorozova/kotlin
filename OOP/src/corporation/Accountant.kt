@@ -9,6 +9,7 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerT
     //val items = listOf<ProductCard>()//colleccion de datos que no se puede modificar, es decir no se puede añadir datos
     //val items = mutableListOf<ProductCard>()
     val file = File("product_cards.txt")
+    val workersList = File("workers_cards.txt")
 
     override fun work() {
         val operationTypes = OperationType.entries
@@ -30,8 +31,8 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerT
                 OperationType.SHOW_ALL_ITEMS -> showAllItems()
                 OperationType.REMOVE_PRODUCT_CARD -> removeProductCard()
                 OperationType.REGISTER_NEW_EMPLOYEE -> registerNewWorker()
-                OperationType.FIRE_EMPLOYEE -> TODO()
-                OperationType.SHOW_ALL_EMPLOYEES -> TODO()
+                OperationType.FIRE_EMPLOYEE -> fireWorker()
+                OperationType.SHOW_ALL_EMPLOYEES -> showAllWorkers()
             }
         }
 
@@ -314,6 +315,13 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerT
     }
 
 
+    fun showAllWorkers(){
+        val workers = loadAllWorkers()
+        for (worker in workers){
+            worker.printInfo()
+        }
+    }
+
     fun registerNewWorker(){
         val workerTypes = WorkerType.entries
         println("Choose position: ")
@@ -349,64 +357,84 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerT
                 Consultant(workerId, workerName, workerAge)
             }
         }
+        saveWorkerListToFile(card)
     }
 
 
 
     fun saveWorkerListToFile(worker: Worker) {
-        file.appendText("${worker.id}%${worker.name}%${worker.age}%")
+        workersList.appendText("${worker.id}%${worker.name}%${worker.age}%")
 
         when (worker) {
             is Director -> { //Comprobamos si pertenece a tipo Food
-                file.appendText("${worker.workerType}\n")
+                workersList.appendText("${worker.workerType}\n")
             }
 
-            is Shoes -> {
-                file.appendText("${worker.workerType}\n")
+            is Accountant -> {
+                workersList.appendText("${worker.workerType}\n")
             }
 
-            is Appliances -> {
-                file.appendText("${worker.workerType}\n")
+            is Assistant -> {
+                workersList.appendText("${worker.workerType}\n")
+            }
+            is Consultant -> {
+                workersList.appendText("${worker.workerType}\n")
             }
         }
+    }
 
+    fun loadAllWorkers(): MutableList<Worker> {
+        val workers: MutableList<Worker> = mutableListOf<Worker>()//creado collecion
+        val content = workersList.readText().trim()
 
-
-        fun loadAllList(): MutableList<Worker> {
-            val workers: MutableList<Worker> = mutableListOf<Worker>()//creado collecion
-            val content = file.readText().trim()
-
-            if (content.isEmpty()) {
-                return workers
-            }
-
-            val listsAsString = content.split("\n")
-            for (listAsString in listsAsString) {
-                val properties = listAsString.split("%")
-                val id = properties[0].toInt()
-                val name = properties[1]
-                val age = properties[2].toInt()
-
-                val worker = when (workerType) {
-                    WorkerType.DIRECTOR -> {
-                        Director(id, name, age)
-                    }
-
-                    WorkerType.ACCOUNTANT -> {
-                        Accountant(id, name, age)
-                    }
-
-                    WorkerType.ASSISTANT -> {
-                        Assistant(id, name, age)
-                    }
-
-                    WorkerType.CONSULTANT -> {
-                        Consultant(id, name, age)
-                    }
-                }
-                workers.add(workerType)
-            }
+        if (content.isEmpty()) {
             return workers
+        }
+
+        val listsAsString = content.split("\n")
+        for (listAsString in listsAsString) {
+            val properties = listAsString.split("%")
+            val id = properties[0].toInt()
+            val name = properties[1]
+            val age = properties[2].toInt()
+            val type = properties.last()
+            val workerType = WorkerType.valueOf(type)
+            val worker = when (workerType) {
+                WorkerType.DIRECTOR -> {
+                    Director(id, name, age)
+                }
+
+                WorkerType.ACCOUNTANT -> {
+                    Accountant(id, name, age)
+                }
+
+                WorkerType.ASSISTANT -> {
+                    Assistant(id, name, age)
+                }
+
+                WorkerType.CONSULTANT -> {
+                    Consultant(id, name, age)
+                }
+            }
+            workers.add(worker)
+        }
+        return workers
+    }
+
+    fun fireWorker(){
+        val workers: MutableList<Worker> = loadAllWorkers()
+        println("Enter id for fire a worker: ")
+        val id = readln().toInt()
+
+        for (worker in workers){
+            if (worker.id == id) {
+                workers.remove(worker)
+                break
+            }
+        }
+        workersList.writeText("")//reescribimos texto en file
+        for (worker in workers){
+            saveWorkerListToFile(worker)
         }
     }
 }

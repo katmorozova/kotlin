@@ -10,4 +10,8 @@ open class Worker(
     open fun work(){
         println("I'm working now ... ")
     }
+
+    open fun printInfo(){
+        print("Id: $id Name: $name Age: $age\n")
+    }
 }
