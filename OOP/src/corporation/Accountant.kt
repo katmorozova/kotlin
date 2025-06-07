@@ -89,7 +89,7 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerT
 
     }
 
-    fun removeProductCard(){
+    private fun removeProductCard(){
         val cards: MutableList<ProductCard> = loadAllCards()
         println("Enter name of card for removing: ")
         val name = readln()
@@ -113,7 +113,7 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerT
         }
     }
 
-    fun saveProductCardToFile(productCard: ProductCard){
+    private fun saveProductCardToFile(productCard: ProductCard){
         file.appendText("${productCard.name}%${productCard.brand}%${productCard.price}%")
         /*
         if (productCard is Food){ //Comprobamos si pertenece a tipo Food
@@ -141,7 +141,7 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerT
         file.appendText("${productCard.productType}\n")
     }
 
-    fun loadAllCards(): MutableList<ProductCard> {
+    private fun loadAllCards(): MutableList<ProductCard> {
         val cards: MutableList<ProductCard> = mutableListOf<ProductCard>()//creado collecion de los productCards
        //Coger los datos desde product_card.txt y separarles por el simbolo \n
         val content = file.readText().trim()
@@ -180,7 +180,7 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerT
         return cards
     }
 
-    fun showAllItems(){
+    private fun showAllItems(){
        /*
         for(item in items){
             item.printInfo()
@@ -232,7 +232,7 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerT
 
     }
 
-    fun registerNewItem(){
+    private fun registerNewItem(){
         val productTypes = ProductType.entries
         println("Enter the product type: ")
         //println("Enter the product type: 0 - ${productTypes[0].title}, 1 - ${productTypes[1].title}, 2 - ${productTypes[2].title}:")
@@ -315,14 +315,14 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerT
     }
 
 
-    fun showAllWorkers(){
+    private fun showAllWorkers(){
         val workers = loadAllWorkers()
         for (worker in workers){
             worker.printInfo()
         }
     }
 
-    fun registerNewWorker(){
+    private fun registerNewWorker(){
         val workerTypes = WorkerType.entries
         println("Choose position: ")
         for ((index,type) in workerTypes.withIndex()){ //cuando queremos obtener tambien index(numero)
@@ -362,7 +362,7 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerT
 
 
 
-    fun saveWorkerListToFile(worker: Worker) {
+    private fun saveWorkerListToFile(worker: Worker) {
         workersList.appendText("${worker.id}%${worker.name}%${worker.age}%")
 
         when (worker) {
@@ -383,7 +383,7 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerT
         }
     }
 
-    fun loadAllWorkers(): MutableList<Worker> {
+    private fun loadAllWorkers(): MutableList<Worker> {
         val workers: MutableList<Worker> = mutableListOf<Worker>()//creado collecion
         val content = workersList.readText().trim()
 
@@ -421,7 +421,7 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerT
         return workers
     }
 
-    fun fireWorker(){
+    private fun fireWorker(){
         val workers: MutableList<Worker> = loadAllWorkers()
         println("Enter id for fire a worker: ")
         val id = readln().toInt()
