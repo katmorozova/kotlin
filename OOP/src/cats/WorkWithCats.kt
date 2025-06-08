@@ -10,5 +10,6 @@ fun main() {
     cat.playWithMouse()
     lion.eat()
 
+    val animals = listOf<CatsFamily>(cat, lion)
 
 }
