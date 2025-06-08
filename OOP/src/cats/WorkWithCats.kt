@@ -4,9 +4,11 @@ fun main() {
     val cat = Cat("Sam")
     println(cat.legsCount)
     println(cat.name)
-    val lion = Lion(5)
+    cat.eat()
+    val lion = Lion(2)
     println(lion.pride)
     cat.playWithMouse()
+    lion.eat()
 
 
 }
