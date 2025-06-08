@@ -11,5 +11,7 @@ fun main() {
     lion.eat()
 
     val animals = listOf<CatsFamily>(cat, lion)
-
+    for (animal in animals){
+        animal.eat()
+    }
 }
