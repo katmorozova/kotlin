@@ -9,8 +9,8 @@ class Food(name: String,
 
 
     override fun printInfo() {
-        super.printInfo()
-
-        println("Caloric: $caloric")
+        //super.printInfo()
+        print("Name: $name Brand: $brand Price: $price Product type: ${productType.title} Caloric: $caloric\n")
+        //println("Caloric: $caloric")
     }
 }

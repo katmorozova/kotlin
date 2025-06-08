@@ -36,6 +36,7 @@ abstract class ProductCard(
 
  */
 
+    /*
     open fun printInfo(){
        /*
         println("Name: ${this.name}" +
@@ -49,5 +50,7 @@ abstract class ProductCard(
         //println("Name: $name Brand: $brand Size: $size Price: $price")
         print("Name: $name Brand: $brand Price: $price Product type: ${productType.title}")
     }
+     */
 
+    abstract fun printInfo()
 }
