@@ -7,7 +7,6 @@ class Cat(val name: String): CatsFamily() {
     }
 
     override fun eat() {
-        super.eat()
-        print("Wiskas\n")
+        print("Estoy comiendo un Wiskas\n")
     }
 }
