@@ -1,6 +1,6 @@
 package cats
 
-open class CatsFamily (
+open abstract class CatsFamily (
     val legsCount: Int = 4
 ){
 
