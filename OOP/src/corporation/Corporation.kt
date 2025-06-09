@@ -62,8 +62,9 @@ fun main() {
     val accountant = Accountant(1, name = "Helen", 34)
     val workers = accountant.loadAllWorkers()
     for (worker in workers){
-        //println(worker::class.simpleName)
-       // (worker as? Accountant)?.work()
+        if (worker is Cleaner){
+            worker.clean()
+        }
         worker.work()
     }
     //accountant.work()
