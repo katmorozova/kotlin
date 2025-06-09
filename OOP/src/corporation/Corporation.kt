@@ -38,16 +38,18 @@ fun main() {
     director.work(consultant)
  */
 
-    val director: Director = Director(0,"Tony", 45)
+    //val director: Director = Director(0,"Tony", 45)
     val accountant: Accountant = Accountant(1, name = "Helen", 34)
-    val consultant: Consultant = Consultant(3,"Max", 34)
-    val assistant: Assistant = Assistant(2, "John", 23)
+    //val consultant: Consultant = Consultant(3,"Max", 34)
+    //val assistant: Assistant = Assistant(2, "John", 23)
 
    // val employees = listOf<Any>(director, consultant, assistant, "Hello")//todos los clases en Kotlin se heredan de clase Any
+    /*
     val employees = listOf<Worker>(director, consultant, assistant, accountant)
     for(employee in employees){
         employee.work()
     }
+     */
 
 /*
     val shoes: Shoes = Shoes("bambas", "nike", 34f, 232)
@@ -58,6 +60,9 @@ fun main() {
     appliances.printInfo()
 
  */
-
+    val employees = accountant.loadAllWorkers()
+    for (employee in employees){
+        employee.work()
+    }
 
 }

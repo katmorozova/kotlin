@@ -383,7 +383,7 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerT
         }
     }
 
-    private fun loadAllWorkers(): MutableList<Worker> {
+     fun loadAllWorkers(): MutableList<Worker> {
         val workers: MutableList<Worker> = mutableListOf<Worker>()//creado collecion
         val content = workersList.readText().trim()
 
