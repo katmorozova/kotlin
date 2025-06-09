@@ -39,7 +39,6 @@ fun main() {
  */
 
     //val director: Director = Director(0,"Tony", 45)
-    val accountant: Accountant = Accountant(1, name = "Helen", 34)
     //val consultant: Consultant = Consultant(3,"Max", 34)
     //val assistant: Assistant = Assistant(2, "John", 23)
 
@@ -60,9 +59,13 @@ fun main() {
     appliances.printInfo()
 
  */
-    val employees = accountant.loadAllWorkers()
-    for (employee in employees){
-        employee.work()
+    val accountant = Accountant(1, name = "Helen", 34)
+    val workers = accountant.loadAllWorkers()
+    for (worker in workers){
+        //println(worker::class.simpleName)
+       // (worker as? Accountant)?.work()
+        worker.work()
     }
+    //accountant.work()
 
 }

@@ -16,6 +16,6 @@ abstract class Worker(
     abstract fun work()
 
     open fun printInfo(){
-        print("Id: $id Name: $name Age: $age\n")
+        print("Id: $id Name: $name Age: $age Worker type: $workerType\n")
     }
 }
