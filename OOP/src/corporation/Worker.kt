@@ -18,4 +18,8 @@ abstract class Worker(
     open fun printInfo(){
         print("Id: $id Name: $name Age: $age Worker type: $workerType\n")
     }
+
+    override fun toString(): String {
+        return super.toString()
+    }
 }
