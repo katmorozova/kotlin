@@ -60,6 +60,8 @@ fun main() {
 
  */
     val accountant = Accountant(1, name = "Helen", 34)
+    println(accountant)
+   /*
     val workers = accountant.loadAllWorkers()
     for (worker in workers){
         if (worker is Cleaner){
@@ -70,6 +72,8 @@ fun main() {
         }
         //worker.work()
     }
+
+    */
     //accountant.work()
 
 
