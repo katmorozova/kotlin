@@ -1,6 +1,6 @@
 package corporation
 
-class Assistant(id: Int, name: String, age: Int): Cleaner(id = id, name = name, age = age, WorkerType.ASSISTANT) {
+class Assistant(id: Int, name: String, age: Int): Worker(id = id, name = name, age = age, WorkerType.ASSISTANT) {
 
     fun bringCoffee(count: Int = 1, drink: String = "Cafe con leche desoja"): String{
         repeat(count){
