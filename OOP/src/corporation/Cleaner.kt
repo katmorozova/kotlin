@@ -2,7 +2,7 @@ package corporation
 
 interface Cleaner {
 
-    fun clean(){
+    open fun clean(){
         println("I'm cleaning workplace")
     }
 }

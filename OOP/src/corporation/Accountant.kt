@@ -2,7 +2,7 @@ package corporation
 
 import java.io.File
 
-class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerType.ACCOUNTANT) {
+class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerType.ACCOUNTANT), Cleaner, Supplier {
 
     //val type: Int = readln().toInt()
 

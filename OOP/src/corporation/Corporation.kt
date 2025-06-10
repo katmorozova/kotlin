@@ -65,8 +65,13 @@ fun main() {
         if (worker is Cleaner){
             worker.clean()
         }
-        worker.work()
+        if(worker is Supplier){
+            worker.buyThings()
+        }
+        //worker.work()
     }
     //accountant.work()
+
+
 
 }
