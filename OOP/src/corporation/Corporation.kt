@@ -60,7 +60,7 @@ fun main() {
 
  */
     val accountant = Accountant(1, name = "Helen", 34)
-    println(accountant)
+    println(accountant.toString())
    /*
     val workers = accountant.loadAllWorkers()
     for (worker in workers){
