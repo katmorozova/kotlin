@@ -5,6 +5,10 @@ class Assistant(
     name: String,
     age: Int): Worker(id = id, name = name, age = age, WorkerType.ASSISTANT), Cleaner, Supplier {
 
+    override fun clean() {
+        println("My position is Assistant. I'm cleaning workplace...")
+    }
+
     fun bringCoffee(count: Int = 1, drink: String = "Cafe con leche desoja"): String{
         repeat(count){
             println("Jefe ha pedido $drink")
