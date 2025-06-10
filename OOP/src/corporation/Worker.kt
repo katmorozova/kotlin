@@ -16,10 +16,10 @@ abstract class Worker(
     abstract fun work()
 
     open fun printInfo(){
-        print("Id: $id Name: $name Age: $age Worker type: $workerType\n")
+        print(this)
     }
 
     override fun toString(): String {
-        return super.toString()
+        return "Id: $id Name: $name Age: $age Worker type: $workerType\n"
     }
 }
