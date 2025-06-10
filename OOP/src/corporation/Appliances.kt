@@ -10,7 +10,11 @@ class Appliances(name: String,
 
     override fun printInfo() {
         //super.printInfo()
-        print("Name: $name Brand: $brand Price: $price Product type: ${productType.title} Power: $power\n")
+        print(this)
         //println("Power: $power")
+    }
+
+    override fun toString(): String {
+        return "Name: $name Brand: $brand Price: $price Product type: ${productType.title} Power: $power\n"
     }
 }
