@@ -52,7 +52,9 @@ abstract class ProductCard(
     }
      */
 
-    abstract fun printInfo()
+    fun printInfo(){
+        println(this)
+    }
 
 
 }
