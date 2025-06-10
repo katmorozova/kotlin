@@ -9,6 +9,10 @@ class Assistant(
         println("My position is Assistant. I'm cleaning workplace...")
     }
 
+    override fun buyThings() {
+        println("My position is ${WorkerType.ASSISTANT}. I'm buying things...")
+    }
+
     fun bringCoffee(count: Int = 1, drink: String = "Cafe con leche desoja"): String{
         repeat(count){
             println("Jefe ha pedido $drink")

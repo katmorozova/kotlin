@@ -6,6 +6,10 @@ class Director (
     age: Int
 ): Worker(id = id, name = name, age = age, WorkerType.DIRECTOR), Supplier {
 
+    override fun buyThings() {
+        println("My position is ${WorkerType.DIRECTOR}. I'm buying things...")
+    }
+
     fun takeCoffee(assistant: Assistant){
         val drink: String = assistant.bringCoffee()
         println("Thanks ${assistant.name}! The $drink is very tasty.")

@@ -15,6 +15,10 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerT
         println("My position is Accountant. I'm cleaning workplace...")
     }
 
+    override fun buyThings() {
+        println("My position is ${WorkerType.ACCOUNTANT}. I'm buying things...")
+    }
+
     override fun work() {
         val operationTypes = OperationType.entries
         while(true){
