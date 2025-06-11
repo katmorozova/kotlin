@@ -112,7 +112,7 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerT
         val workers = loadAllWorkers()
         workersList.writeText("")//reescribimos texto en file
         for (worker in workers){
-            if (worker.id != id) {
+            if (worker.id == id) {
                 worker.salary = salary
                 saveWorkerListToFile(worker)
             }
