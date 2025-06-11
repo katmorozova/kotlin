@@ -6,6 +6,8 @@ abstract class Worker(
     val age: Int = 0,
     val workerType: WorkerType
     ) {
+
+    var salary: Int = 15000
 /*
     open fun work(){
         println("I'm working now ... ")
