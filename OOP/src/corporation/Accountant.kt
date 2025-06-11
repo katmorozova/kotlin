@@ -105,7 +105,18 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerT
     }
 
     private fun changeSalary(){
-
+        println("Enter worker's id to change salary: ")
+        val id = readln().toInt()
+        println("Enter new salary: ")
+        val salary = readln().toInt()
+        val workers = loadAllWorkers()
+        workersList.writeText("")//reescribimos texto en file
+        for (worker in workers){
+            if (worker.id != id) {
+                worker.salary = salary
+                saveWorkerListToFile(worker)
+            }
+        }
     }
 
     private fun removeProductCard(){
