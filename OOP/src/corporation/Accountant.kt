@@ -47,6 +47,7 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerT
                 OperationType.REGISTER_NEW_EMPLOYEE -> registerNewWorker()
                 OperationType.FIRE_EMPLOYEE -> fireWorker()
                 OperationType.SHOW_ALL_EMPLOYEES -> showAllWorkers()
+                OperationType.CHANGE_SALARY -> changeSalary()
             }
         }
 
@@ -100,6 +101,10 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerT
         }while (item == 1)
 
          */
+
+    }
+
+    private fun changeSalary(){
 
     }
 
