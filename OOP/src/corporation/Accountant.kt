@@ -360,6 +360,8 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerT
         val name = readln()
         println("Enter worker´s age: ")
         val age = readln().toInt()
+        println("Enter worker´s salary: ")
+        val salary = readln().toInt()
 
         val worker = when(workerType){
             WorkerType.DIRECTOR -> Director(id, name, age)
@@ -367,6 +369,7 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerT
             WorkerType.ASSISTANT -> Assistant(id, name, age)
             WorkerType.CONSULTANT -> Consultant(id, name, age)
         }
+        worker.salary = salary
         saveWorkerListToFile(worker)
     }
 
