@@ -329,7 +329,7 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerT
     }
 
     private fun saveWorkerListToFile(worker: Worker) {
-        workersList.appendText("${worker.id}%${worker.name}%${worker.age}%${worker.workerType}\n")
+        workersList.appendText("${worker.id}%${worker.name}%${worker.age}%${worker.salary}%${worker.workerType}\n")
     }
 
 
