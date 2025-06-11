@@ -1,19 +1,34 @@
 package profile
 
-class Person {
+class Person (
 
-    val name: String
-    val age: Int
-    val height: Int
-    val weight: Int
+    private val name: String,
+    private val height: Int,
+    private val weight: Int
+){
+    var age: Int = 0
 
+        set(value) {
+            if (value > field){
+                field = value
+            }else {
+                println("The new age must be bigger than the old one ")
+            }
+        }
+        get() {
+            println("It is indecent to ask a person his age")
+            return field
+        }
 
+    /*
     constructor(name: String,age: Int,height: Int, weight: Int){
         this.name = name
         this.age = age
         this.height = height
         this.weight = weight
     }
+
+     */
     /*
     fun init(name: String,age: Int,height: Int, weight: Int){
         this.name = name
