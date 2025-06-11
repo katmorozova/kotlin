@@ -22,6 +22,6 @@ abstract class Worker(
     }
 
     override fun toString(): String {
-        return "Id: $id Name: $name Age: $age Worker type: $workerType\n"
+        return "Id: $id Name: $name Age: $age Worker type: $workerType Salary: $salary\n"
     }
 }
