@@ -8,6 +8,18 @@ abstract class Worker(
     ) {
 
     var salary: Int = 15000
+
+        set(value) {
+            if (value < field){
+                println("The new salary is too small... ")
+            }else {
+                field = value
+            }
+        }
+
+        get() {
+            return field
+        }
 /*
     open fun work(){
         println("I'm working now ... ")
