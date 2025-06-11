@@ -385,6 +385,7 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerT
             val id = properties[0].toInt()
             val name = properties[1]
             val age = properties[2].toInt()
+            val salary = properties[3].toInt()
             val type = properties.last()
             val workerType = WorkerType.valueOf(type)
             val worker = when (workerType) {
@@ -393,6 +394,7 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerT
                 WorkerType.ASSISTANT -> Assistant(id, name, age)
                 WorkerType.CONSULTANT -> Consultant(id, name, age)
             }
+            worker.salary = salary
             workers.add(worker)
         }
         return workers
