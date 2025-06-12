@@ -373,7 +373,7 @@ class Accountant(id: Int, name: String, age: Int, salary: Int): Worker(id, name,
             WorkerType.CONSULTANT -> Consultant(id, name, age, salary)
         }
         //worker.salary = salary
-        worker.setSalary(salary)
+        //worker.setSalary(salary)
         saveWorkerListToFile(worker)
     }
 
@@ -402,7 +402,7 @@ class Accountant(id: Int, name: String, age: Int, salary: Int): Worker(id, name,
                 WorkerType.CONSULTANT -> Consultant(id, name, age, salary)
             }
             //worker.salary = salary
-            worker.setSalary(salary)
+            //worker.setSalary(salary)
             workers.add(worker)
         }
         return workers
