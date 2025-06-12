@@ -3,6 +3,7 @@ package profile
 class Person (
 
     private val name: String,
+    var lastName:String,
     private val height: Int,
     private val weight: Int
 ){
@@ -19,6 +20,9 @@ class Person (
             println("It is indecent to ask a person his age")
             return field
         }
+
+    val fullName: String
+        get() = "$name $lastName"
 
     /*
     constructor(name: String,age: Int,height: Int, weight: Int){
