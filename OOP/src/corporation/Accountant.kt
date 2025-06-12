@@ -367,10 +367,10 @@ class Accountant(id: Int, name: String, age: Int, salary: Int): Worker(id, name,
         val salary = readln().toInt()
 
         val worker = when(workerType){
-            WorkerType.DIRECTOR -> Director(id, name, age)
+            WorkerType.DIRECTOR -> Director(id, name, age, salary)
             WorkerType.ACCOUNTANT -> Accountant(id, name, age, salary)
-            WorkerType.ASSISTANT -> Assistant(id, name, age)
-            WorkerType.CONSULTANT -> Consultant(id, name, age)
+            WorkerType.ASSISTANT -> Assistant(id, name, age, salary)
+            WorkerType.CONSULTANT -> Consultant(id, name, age, salary)
         }
         //worker.salary = salary
         worker.setSalary(salary)
@@ -396,10 +396,10 @@ class Accountant(id: Int, name: String, age: Int, salary: Int): Worker(id, name,
             val type = properties.last()
             val workerType = WorkerType.valueOf(type)
             val worker = when (workerType) {
-                WorkerType.DIRECTOR -> Director(id, name, age)
+                WorkerType.DIRECTOR -> Director(id, name, age, salary)
                 WorkerType.ACCOUNTANT -> Accountant(id, name, age, salary)
-                WorkerType.ASSISTANT -> Assistant(id, name, age)
-                WorkerType.CONSULTANT -> Consultant(id, name, age)
+                WorkerType.ASSISTANT -> Assistant(id, name, age, salary)
+                WorkerType.CONSULTANT -> Consultant(id, name, age, salary)
             }
             //worker.salary = salary
             worker.setSalary(salary)
