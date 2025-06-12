@@ -4,7 +4,7 @@ abstract class Worker(
     val id: Int,
     val name: String,
     val age: Int = 0,
-    var salary: Int = 15000,
+    private var salary: Int = 15000,
     val workerType: WorkerType
     ) {
 

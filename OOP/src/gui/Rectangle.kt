@@ -1,11 +1,16 @@
 package gui
 
 class Rectangle(
-   val width: Int = 0,
-   val height: Int = 0
+   var width: Int = 0,
+   var height: Int = 0
 ) {
 
-   // val width: Int
+    val area: Int
+        get() = width * height
+
+
+
+    // val width: Int
     //val height: Int
 /*
     constructor(){//constructor vacio, cuando no hace falta proporcinar parametros

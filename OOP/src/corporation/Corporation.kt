@@ -59,7 +59,7 @@ fun main() {
     appliances.printInfo()
 
  */
-    val accountant = Accountant(1, name = "Helen", 34)
+    val accountant = Accountant(1, name = "Helen", 34, 60000)
     //println(accountant.toString())
     accountant.work()
    /*
