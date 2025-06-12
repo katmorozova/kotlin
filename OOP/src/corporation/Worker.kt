@@ -8,6 +8,7 @@ abstract class Worker(
     val workerType: WorkerType
     ) {
 
+    fun getSalary():Int = this.salary
 
     fun setSalary(salary: Int){
         if (salary < this.salary){
