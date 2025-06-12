@@ -2,7 +2,7 @@ package corporation
 
 import java.io.File
 
-class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerType.ACCOUNTANT), Cleaner, Supplier {
+class Accountant(id: Int, name: String, age: Int, salary: Int): Worker(id, name, age, salary,WorkerType.ACCOUNTANT), Cleaner, Supplier {
 
     //val type: Int = readln().toInt()
 
@@ -104,20 +104,6 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerT
 
     }
 
-    private fun changeSalary(){
-        println("Enter worker's id to change salary: ")
-        val id = readln().toInt()
-        println("Enter new salary: ")
-        val salary = readln().toInt()
-        val workers = loadAllWorkers()
-        workersList.writeText("")//reescribimos texto en file
-        for (worker in workers){
-            if (worker.id == id) {
-                worker.salary = salary
-                saveWorkerListToFile(worker)
-            }
-        }
-    }
 
     private fun removeProductCard(){
         val cards: MutableList<ProductCard> = loadAllCards()
@@ -345,7 +331,8 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerT
     }
 
     private fun saveWorkerListToFile(worker: Worker) {
-        workersList.appendText("${worker.id}%${worker.name}%${worker.age}%${worker.salary}%${worker.workerType}\n")
+        //workersList.appendText("${worker.id}%${worker.name}%${worker.age}%${worker.salary}%${worker.workerType}\n")
+        workersList.appendText("${worker.id}%${worker.name}%${worker.age}%${worker.getSalary()}%${worker.workerType}\n")
     }
 
 
@@ -381,11 +368,12 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerT
 
         val worker = when(workerType){
             WorkerType.DIRECTOR -> Director(id, name, age)
-            WorkerType.ACCOUNTANT -> Accountant(id, name, age)
+            WorkerType.ACCOUNTANT -> Accountant(id, name, age, salary)
             WorkerType.ASSISTANT -> Assistant(id, name, age)
             WorkerType.CONSULTANT -> Consultant(id, name, age)
         }
-        worker.salary = salary
+        //worker.salary = salary
+        worker.setSalary(salary)
         saveWorkerListToFile(worker)
     }
 
@@ -409,11 +397,12 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerT
             val workerType = WorkerType.valueOf(type)
             val worker = when (workerType) {
                 WorkerType.DIRECTOR -> Director(id, name, age)
-                WorkerType.ACCOUNTANT -> Accountant(id, name, age)
+                WorkerType.ACCOUNTANT -> Accountant(id, name, age, salary)
                 WorkerType.ASSISTANT -> Assistant(id, name, age)
                 WorkerType.CONSULTANT -> Consultant(id, name, age)
             }
-            worker.salary = salary
+            //worker.salary = salary
+            worker.setSalary(salary)
             workers.add(worker)
         }
         return workers
@@ -442,5 +431,20 @@ class Accountant(id: Int, name: String, age: Int): Worker(id, name, age, WorkerT
             saveWorkerListToFile(worker)
         }
          */
+    }
+    private fun changeSalary(){
+        println("Enter worker's id to change salary: ")
+        val id = readln().toInt()
+        println("Enter new salary: ")
+        val salary = readln().toInt()
+        val workers = loadAllWorkers()
+        workersList.writeText("")//reescribimos texto en file
+        for (worker in workers){
+            if (worker.id == id) {
+                //worker.salary = salary
+                worker.setSalary(salary)
+            }
+            saveWorkerListToFile(worker)
+        }
     }
 }
