@@ -1,2 +1,3 @@
-"chocolate"%"Sneakers"%3%1234
-bambas%nike%234%38
+chips%lays%2%1233%FOOD
+assecador%dayson%1500%125%APPLIANCES
+bambas%nike%230%38%SHOES

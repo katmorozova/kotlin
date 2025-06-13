@@ -42,8 +42,8 @@ class WorkersRepository {
             val name = properties[1]
             val age = properties[2].toInt()
             val salary = properties[3].toInt()
-            val type = properties.last()
-            val workerType = WorkerType.valueOf(type)
+            val positionAsText = properties.last()
+            val workerType = WorkerType.valueOf(positionAsText)
             val worker = when (workerType) {
                 WorkerType.DIRECTOR -> Director(id, name, age, salary)
                 WorkerType.ACCOUNTANT -> Accountant(id, name, age, salary)
