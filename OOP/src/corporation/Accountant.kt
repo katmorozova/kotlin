@@ -8,8 +8,9 @@ class Accountant(id: Int, name: String, age: Int, salary: Int): Worker(id, name,
 
     //val items = listOf<ProductCard>()//colleccion de datos que no se puede modificar, es decir no se puede añadir datos
     //val items = mutableListOf<ProductCard>()
+    private val workersRepository = WorkersRepository()
     private val file = File("product_cards.txt")
-    private val workersList = File("workers_cards.txt")
+
 /*
     override fun toString(): String {
         return "Id: $id Name: $name Age: $age Worker type: $workerType\n"
@@ -330,14 +331,8 @@ class Accountant(id: Int, name: String, age: Int, salary: Int): Worker(id, name,
         saveProductCardToFile(card)
     }
 
-    private fun saveWorkerListToFile(worker: Worker) {
-        //workersList.appendText("${worker.id}%${worker.name}%${worker.age}%${worker.salary}%${worker.workerType}\n")
-        workersList.appendText("${worker.id}%${worker.name}%${worker.age}%${worker.getSalary()}%${worker.workerType}\n")
-    }
-
-
     private fun showAllWorkers(){
-        val workers = loadAllWorkers()
+        val workers = workersRepository.loadAllWorkers()
         for (worker in workers){
             worker.printInfo()
         }
@@ -374,40 +369,9 @@ class Accountant(id: Int, name: String, age: Int, salary: Int): Worker(id, name,
         }
         //worker.salary = salary
         //worker.setSalary(salary)
-        saveWorkerListToFile(worker)
+        workersRepository.registerNewEmployee(worker)
     }
-
-
-     fun loadAllWorkers(): MutableList<Worker> {
-        val workers = mutableListOf<Worker>()//creado collecion
-        if(!workersList.exists()) workersList.createNewFile()
-
-         val content = workersList.readText().trim()
-
-        if (content.isEmpty()) return workers
-
-        val listsAsString = content.split("\n")
-        for (listAsString in listsAsString) {
-            val properties = listAsString.split("%")
-            val id = properties[0].toInt()
-            val name = properties[1]
-            val age = properties[2].toInt()
-            val salary = properties[3].toInt()
-            val type = properties.last()
-            val workerType = WorkerType.valueOf(type)
-            val worker = when (workerType) {
-                WorkerType.DIRECTOR -> Director(id, name, age, salary)
-                WorkerType.ACCOUNTANT -> Accountant(id, name, age, salary)
-                WorkerType.ASSISTANT -> Assistant(id, name, age, salary)
-                WorkerType.CONSULTANT -> Consultant(id, name, age, salary)
-            }
-            //worker.salary = salary
-            //worker.setSalary(salary)
-            workers.add(worker)
-        }
-        return workers
-    }
-
+/*
     private fun fireWorker(){
         println("Enter id for fire a worker: ")
         val id = readln().toInt()
@@ -432,19 +396,22 @@ class Accountant(id: Int, name: String, age: Int, salary: Int): Worker(id, name,
         }
          */
     }
+
+ */
+
+
+    private fun fireWorker(){
+        println("Enter id for fire a worker: ")
+        val id = readln().toInt()
+        workersRepository.fireWorker(id)
+    }
+
+
     private fun changeSalary(){
         println("Enter worker's id to change salary: ")
         val id = readln().toInt()
         println("Enter new salary: ")
         val salary = readln().toInt()
-        val workers = loadAllWorkers()
-        workersList.writeText("")//reescribimos texto en file
-        for (worker in workers){
-            if (worker.id == id) {
-                //worker.salary = salary
-                worker.setSalary(salary)
-            }
-            saveWorkerListToFile(worker)
-        }
+        workersRepository.changeSalary(id,salary)
     }
 }
