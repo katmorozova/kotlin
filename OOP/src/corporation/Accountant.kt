@@ -4,19 +4,9 @@ import java.io.File
 
 class Accountant(id: Int, name: String, age: Int, salary: Int): Worker(id, name, age, salary,WorkerType.ACCOUNTANT), Cleaner, Supplier {
 
-    //val type: Int = readln().toInt()
 
-    //val items = listOf<ProductCard>()//colleccion de datos que no se puede modificar, es decir no se puede añadir datos
-    //val items = mutableListOf<ProductCard>()
     private val workersRepository = WorkersRepository()
     private val file = File("product_cards.txt")
-
-/*
-    override fun toString(): String {
-        return "Id: $id Name: $name Age: $age Worker type: $workerType\n"
-    }
-
- */
 
     override fun clean() {
         println("My position is Accountant. I'm cleaning workplace...")
@@ -51,58 +41,6 @@ class Accountant(id: Int, name: String, age: Int, salary: Int): Worker(id, name,
                 OperationType.CHANGE_SALARY -> changeSalary()
             }
         }
-
-        /*
-        do {
-            println("\nEnter the operation code: 0 - exit, 1 - register new item:")
-            val item = readln().toInt()
-            if (item == 0){
-                return
-            }else if (item == 1){
-                println("Enter the product type: 0 - Food, 1 - Appliances, 2 - Shoes:")
-                val type = readln().toInt()
-                if(type == 0){
-                    println("Enter name: ")
-                    val name = readln()
-                    println("Enter brand: ")
-                    val brand = readln()
-                    println("Enter caloric: ")
-                    val caloric = readln().toFloat()
-                    println("Enter price: ")
-                    val price = readln()
-
-                    print("Name: $name Brand: $brand Caloric: $caloric Price: $price ")
-                } else if (type == 1){
-                    println("Enter name: ")
-                    val name = readln()
-                    println("Enter brand: ")
-                    val brand = readln()
-                    println("Enter power: ")
-                    val power = readln().toFloat()
-                    println("Enter price: ")
-                    val price = readln()
-
-                    print("Name: $name Brand: $brand Power: $power Price: $price ")
-                }else if (type == 2){
-                    println("Enter name: ")
-                    val name = readln()
-                    println("Enter brand: ")
-                    val brand = readln()
-                    println("Enter size: ")
-                    val size = readln().toFloat()
-                    println("Enter price: ")
-                    val price = readln()
-
-                    print("Name: $name Brand: $brand Size: $size Price: $price ")
-                }
-            }else{
-                println("Numero de operacion desconocido")
-            }
-
-        }while (item == 1)
-
-         */
-
     }
 
 
@@ -132,11 +70,6 @@ class Accountant(id: Int, name: String, age: Int, salary: Int): Worker(id, name,
 
     private fun saveProductCardToFile(productCard: ProductCard){
         file.appendText("${productCard.name}%${productCard.brand}%${productCard.price}%")
-        /*
-        if (productCard is Food){ //Comprobamos si pertenece a tipo Food
-            (productCard as Food).caloric //hacemos down-cast
-        }
-         */
         when (productCard) {
             is Food -> { //Comprobamos si pertenece a tipo Food
                 //productCard.caloric //hacemos down-cast
@@ -198,61 +131,15 @@ class Accountant(id: Int, name: String, age: Int, salary: Int): Worker(id, name,
     }
 
     private fun showAllItems(){
-       /*
-        for(item in items){
-            item.printInfo()
-        }
-        */
-        /*
-        val cards = mutableListOf<ProductCard>()//creado collecion de los productCards
-
-        //Coger los datos desde product_card.txt y separarles por el simbolo \n
-        val content = file.readText().trim()
-
-        if (content.isEmpty()){
-            return
-        }
-        val cardsAsString = content.split("\n")
-        for(cardAsString in cardsAsString){
-            val properties = cardAsString.split("%")
-            val name = properties[0]
-            val brand = properties[1]
-            val price = properties[2].toInt()
-            //val type = properties[properties.size -1]
-            val type = properties.last()
-            val productType = ProductType.valueOf(type)
-            val productCard = when(productType){
-                ProductType.FOOD -> {
-                    val caloric = properties[3].toInt()
-                    Food(name, brand,caloric, price)
-                }
-                ProductType.APPLIANCES -> {
-                    val power = properties[3].toInt()
-                    Appliances(name, brand, power, price)
-
-                }
-                ProductType.SHOES -> {
-                    val size = properties[3].toInt()
-                    Shoes(name, brand, size, price)
-
-                }
-            }
-            productCard.printInfo()
-            //items.add(productCard)
-        }
-
-         */
         val cards = loadAllCards()
         for (card in cards){
             card.printInfo()
         }
-
     }
 
     private fun registerNewItem(){
         val productTypes = ProductType.entries
         println("Enter the product type: ")
-        //println("Enter the product type: 0 - ${productTypes[0].title}, 1 - ${productTypes[1].title}, 2 - ${productTypes[2].title}:")
         for ((index,type) in productTypes.withIndex()){ //cuando queremos obtener tambien index(numero)
             print("$index - ${type.title}")
             if (index < productTypes.size){
@@ -276,36 +163,6 @@ class Accountant(id: Int, name: String, age: Int, salary: Int): Worker(id, name,
         //ProductType.valueOf("FOOD")
         //val card = when(productType){
         val card = when(productType){
-            /*
-            0 -> {
-                println(Enter the caloric: )
-                val caloric = readln().toInt()
-                Food(name = productName,
-                    brand = productBrand,
-                    caloric = caloric,
-                    price = productPrice
-                )
-            }
-            1 -> {
-                println("Enter the power: ")
-                val power = readln().toInt()
-                Appliances(name = productName,
-                    brand = productBrand,
-                    power = power,
-                    price = productPrice
-                )
-            }
-            else -> {
-                println("Enter the size: ")
-                val size = readln().toInt()
-                Shoes(name = productName,
-                    brand = productBrand,
-                    size = size,
-                    price = productPrice
-                )
-            }
-
-             */
             ProductType.FOOD -> {
                 println("Enter the caloric: ")
                 val caloric = readln().toInt()
@@ -325,9 +182,6 @@ class Accountant(id: Int, name: String, age: Int, salary: Int): Worker(id, name,
                 Shoes(productName, productBrand, productPrice, size)
             }
         }
-        //file.appendText("$productType\n")
-        //items.add(card)
-        //card.printInfo()
         saveProductCardToFile(card)
     }
 
@@ -367,45 +221,14 @@ class Accountant(id: Int, name: String, age: Int, salary: Int): Worker(id, name,
             WorkerType.ASSISTANT -> Assistant(id, name, age, salary)
             WorkerType.CONSULTANT -> Consultant(id, name, age, salary)
         }
-        //worker.salary = salary
-        //worker.setSalary(salary)
         workersRepository.registerNewEmployee(worker)
     }
-/*
-    private fun fireWorker(){
-        println("Enter id for fire a worker: ")
-        val id = readln().toInt()
-
-        val workers = loadAllWorkers()
-        workersList.writeText("")//reescribimos texto en file
-        for (worker in workers){
-            /*
-            if (worker.id == id) {
-                workers.remove(worker)
-                break
-            }
-             */
-            if (worker.id != id) {
-                saveWorkerListToFile(worker)
-            }
-        }
-        /*
-        workersList.writeText("")//reescribimos texto en file
-        for (worker in workers){
-            saveWorkerListToFile(worker)
-        }
-         */
-    }
-
- */
-
 
     private fun fireWorker(){
         println("Enter id for fire a worker: ")
         val id = readln().toInt()
         workersRepository.fireWorker(id)
     }
-
 
     private fun changeSalary(){
         println("Enter worker's id to change salary: ")
