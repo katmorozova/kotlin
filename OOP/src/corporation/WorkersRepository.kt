@@ -4,6 +4,8 @@ import java.io.File
 
 class WorkersRepository {
 
+
+    private val employees = loadAllWorkers()
     private val workersList = File("workers_cards.txt")
 
     fun registerNewEmployee(worker: Worker){
