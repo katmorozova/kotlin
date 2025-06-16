@@ -9,7 +9,8 @@ class WorkersRepository {
     private val workersList = File("workers_cards.txt")
 
     fun registerNewEmployee(worker: Worker){
-        saveWorkerListToFile(worker)
+        //saveWorkerListToFile(worker)
+        employees.add(worker)
     }
 
     fun changeSalary(id: Int, salary: Int){
