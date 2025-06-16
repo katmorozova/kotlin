@@ -59,9 +59,16 @@ fun main() {
     appliances.printInfo()
 
  */
-    val accountant = Accountant(1, name = "Helen", 34, 60000)
+    val repository = WorkersRepository
+    //println("Creating accountant")
+    val workers = repository.employees
+    for(worker in workers){
+        worker.work()
+    }
+
+    //val accountant = Accountant(1, name = "Helen", 34, 60000)
     //println(accountant.toString())
-    accountant.work()
+    //accountant.work()
    /*
     val workers = accountant.loadAllWorkers()
     for (worker in workers){

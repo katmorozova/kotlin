@@ -47,6 +47,8 @@ object WorkersRepository {
     }
 
     private fun loadAllWorkers(): MutableList<Worker> {
+        println("loadAllWorkers")
+
         val workers = mutableListOf<Worker>()//creado collecion
         if(!workersList.exists()) workersList.createNewFile()
 

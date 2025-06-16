@@ -8,7 +8,7 @@ class Accountant(
 ): Worker(id = id, name = name, age = age, salary = salary,WorkerType.ACCOUNTANT), Cleaner, Supplier {
 
 
-    private val workersRepository = WorkersRepository()
+    private val workersRepository = WorkersRepository
     private val productCardsRepository = ProductCardsRepository()
 
     override fun clean() {
