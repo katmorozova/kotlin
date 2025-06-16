@@ -31,10 +31,17 @@ class WorkersRepository {
     }
 
     fun saveChanges(){
+        var content = ""
+        for (employee in employees){
+            content += "${employee.id}%${employee.name}%${employee.age}%${employee.getSalary()}%${employee.workerType}\n"
+        }
+        workersList.writeText(content)
+        /*
         workersList.writeText("")
         for (employee in employees){
             saveWorkerListToFile(employee)
         }
+         */
     }
 
     private fun loadAllWorkers(): MutableList<Worker> {
