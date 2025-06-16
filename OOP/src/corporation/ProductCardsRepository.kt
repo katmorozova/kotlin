@@ -5,7 +5,9 @@ import java.io.File
 class ProductCardsRepository {
 
     private val file = File("product_cards.txt")
+    val productCards = loadAllCards()
 
+/*
     private fun saveProductCardToFile(productCard: ProductCard) {
         file.appendText("${productCard.name}%${productCard.brand}%${productCard.price}%")
         when (productCard) {
@@ -26,11 +28,13 @@ class ProductCardsRepository {
         file.appendText("${productCard.productType}\n")
     }
 
+ */
+
     fun registerNewItem(productCard: ProductCard){
-        saveProductCardToFile(productCard)
+        productCards.add(productCard)
     }
 
-    fun loadAllCards(): MutableList<ProductCard> {
+    private fun loadAllCards(): MutableList<ProductCard> {
         val cards: MutableList<ProductCard> = mutableListOf<ProductCard>()//creado collecion de los productCards
 
         if (!file.exists()) file.createNewFile()
@@ -72,17 +76,37 @@ class ProductCardsRepository {
         return cards
     }
 
+    fun saveChanges(){
+        val content = StringBuilder()
+        for (productCard in productCards){
+            content.append("${productCard.name}%${productCard.brand}%${productCard.price}%")
+            when (productCard) {
+                is Food -> { //Comprobamos si pertenece a tipo Food
+                    val caloric = productCard.caloric
+                    content.append("$caloric%")
+                }
+                is Shoes -> {
+                    val size = productCard.size
+                    content.append("$size%")
+                }
+
+                is Appliances -> {
+                    val power = productCard.power
+                    content.append("$power%")
+                }
+            }
+            content.append("${productCard.productType}\n")
+        }
+        file.writeText(content.toString())
+    }
+
     fun removeProductCard(name: String){
         val cards: MutableList<ProductCard> = loadAllCards()
-        for (card in cards){
+        for (card in productCards){
             if (card.name == name) {
-                cards.remove(card)
+                productCards.remove(card)
                 break
             }
-        }
-        file.writeText("")//reescribimos texto en file
-        for (card in cards){
-            saveProductCardToFile(card)
         }
     }
 
