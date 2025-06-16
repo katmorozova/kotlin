@@ -24,18 +24,20 @@ class WorkersRepository {
         }
     }
 
-
+/*
     private fun saveWorkerListToFile(worker: Worker) {
         //workersList.appendText("${worker.id}%${worker.name}%${worker.age}%${worker.salary}%${worker.workerType}\n")
         workersList.appendText("${worker.id}%${worker.name}%${worker.age}%${worker.getSalary()}%${worker.workerType}\n")
     }
 
+ */
+
     fun saveChanges(){
-        var content = ""
+        val content = StringBuilder()
         for (employee in employees){
-            content += "${employee.id}%${employee.name}%${employee.age}%${employee.getSalary()}%${employee.workerType}\n"
+            content.append("${employee.id}%${employee.name}%${employee.age}%${employee.getSalary()}%${employee.workerType}\n")
         }
-        workersList.writeText(content)
+        workersList.writeText(content.toString())
         /*
         workersList.writeText("")
         for (employee in employees){
