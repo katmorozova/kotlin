@@ -13,13 +13,13 @@ class WorkersRepository {
     }
 
     fun changeSalary(id: Int, salary: Int){
-        val workers = loadAllWorkers()
-        workersList.writeText("")//reescribimos texto en file
-        for (worker in workers){
-            if (worker.id == id) {
-                worker.setSalary(salary)
+        //val workers = loadAllWorkers()
+        //workersList.writeText("")//reescribimos texto en file
+        for (employee in employees){
+            if (employee.id == id) {
+                employee.setSalary(salary)
             }
-            saveWorkerListToFile(worker)
+            //saveWorkerListToFile(employee)
         }
     }
 
@@ -60,11 +60,12 @@ class WorkersRepository {
     }
 
     fun fireWorker(id:Int){
-        val workers = loadAllWorkers()
-        workersList.writeText("")//reescribimos texto en file
-        for (worker in workers){
-            if (worker.id != id) {
-                saveWorkerListToFile(worker)
+        //val workers = loadAllWorkers()
+        //workersList.writeText("")//reescribimos texto en file
+        for (employee in employees){
+            if (employee.id == id) {
+                employees.remove(employee)
+                break
             }
         }
     }
