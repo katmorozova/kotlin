@@ -30,6 +30,13 @@ class WorkersRepository {
         workersList.appendText("${worker.id}%${worker.name}%${worker.age}%${worker.getSalary()}%${worker.workerType}\n")
     }
 
+    fun saveChanges(){
+        workersList.writeText("")
+        for (employee in employees){
+            saveWorkerListToFile(employee)
+        }
+    }
+
     private fun loadAllWorkers(): MutableList<Worker> {
         val workers = mutableListOf<Worker>()//creado collecion
         if(!workersList.exists()) workersList.createNewFile()
