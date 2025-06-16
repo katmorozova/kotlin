@@ -5,7 +5,7 @@ import java.io.File
 class WorkersRepository {
 
 
-    private val employees = loadAllWorkers()
+    val employees = loadAllWorkers()
     private val workersList = File("workers_cards.txt")
 
     fun registerNewEmployee(worker: Worker){
@@ -30,7 +30,7 @@ class WorkersRepository {
         workersList.appendText("${worker.id}%${worker.name}%${worker.age}%${worker.getSalary()}%${worker.workerType}\n")
     }
 
-    fun loadAllWorkers(): MutableList<Worker> {
+    private fun loadAllWorkers(): MutableList<Worker> {
         val workers = mutableListOf<Worker>()//creado collecion
         if(!workersList.exists()) workersList.createNewFile()
 

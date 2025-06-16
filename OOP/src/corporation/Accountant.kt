@@ -101,7 +101,7 @@ class Accountant(
     }
 
     private fun showAllWorkers(){
-        val workers = workersRepository.loadAllWorkers()
+        val workers = workersRepository.employees
         for (worker in workers){
             worker.printInfo()
         }
