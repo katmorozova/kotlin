@@ -59,9 +59,9 @@ fun main() {
     appliances.printInfo()
 
  */
-    val repository = WorkersRepository
+    //val repository = WorkersRepository
     //println("Creating accountant")
-    val workers = repository.employees
+    val workers = WorkersRepository.employees
     for(worker in workers){
         worker.work()
     }

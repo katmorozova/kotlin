@@ -7,6 +7,7 @@ object WorkersRepository {
     private val workersList = File("workers_cards.txt")
     val employees = loadAllWorkers()
 
+        get() = field.toMutableList()
 
     fun registerNewEmployee(worker: Worker){
         //saveWorkerListToFile(worker)
