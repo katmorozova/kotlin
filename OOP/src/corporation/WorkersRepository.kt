@@ -6,19 +6,19 @@ object WorkersRepository {
 
     private val workersList = File("workers_cards.txt")
     private val _employees = loadAllWorkers()
-    val employees = loadAllWorkers()
+    val employees
 
-        get() = field.toMutableList()
+        get() = _employees.toList()
 
     fun registerNewEmployee(worker: Worker){
         //saveWorkerListToFile(worker)
-        employees.add(worker)
+        _employees.add(worker)
     }
 
     fun changeSalary(id: Int, salary: Int){
         //val workers = loadAllWorkers()
         //workersList.writeText("")//reescribimos texto en file
-        for (employee in employees){
+        for (employee in _employees){
             if (employee.id == id) {
                 employee.setSalary(salary)
             }
@@ -36,7 +36,7 @@ object WorkersRepository {
 
     fun saveChanges(){
         val content = StringBuilder()
-        for (employee in employees){
+        for (employee in _employees){
             content.append("${employee.id}%${employee.name}%${employee.age}%${employee.getSalary()}%${employee.workerType}\n")
         }
         workersList.writeText(content.toString())
@@ -83,9 +83,9 @@ object WorkersRepository {
     fun fireWorker(id:Int){
         //val workers = loadAllWorkers()
         //workersList.writeText("")//reescribimos texto en file
-        for (employee in employees){
+        for (employee in _employees){
             if (employee.id == id) {
-                employees.remove(employee)
+                _employees.remove(employee)
                 break
             }
         }
