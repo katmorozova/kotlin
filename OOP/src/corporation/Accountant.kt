@@ -144,7 +144,7 @@ class Accountant(
     }
 
     override fun copy(salary: Int): Worker {
-        return Accountant(this.id, this.name, this.age, this.salary)
+        return Accountant(this.id, this.name, this.age, salary)
     }
 
     private fun fireWorker(){
