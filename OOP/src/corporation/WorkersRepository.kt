@@ -5,6 +5,7 @@ import java.io.File
 object WorkersRepository {
 
     private val workersList = File("workers_cards.txt")
+    private val _employees = loadAllWorkers()
     val employees = loadAllWorkers()
 
         get() = field.toMutableList()
