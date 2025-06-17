@@ -20,7 +20,8 @@ object WorkersRepository {
         //workersList.writeText("")//reescribimos texto en file
         for (employee in _employees){
             if (employee.id == id) {
-                employee.setSalary(salary)
+                //employee.setSalary(salary)
+                val newWorker = employee.copy()
             }
             //saveWorkerListToFile(employee)
         }
