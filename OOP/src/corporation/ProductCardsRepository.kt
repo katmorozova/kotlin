@@ -5,7 +5,9 @@ import java.io.File
 object ProductCardsRepository {
 
     private val file = File("product_cards.txt")
-    val productCards = loadAllCards()
+    private val _productCards = loadAllCards()
+    val productCards
+        get() = _productCards.toList()
 
 /*
     private fun saveProductCardToFile(productCard: ProductCard) {
@@ -31,7 +33,7 @@ object ProductCardsRepository {
  */
 
     fun registerNewItem(productCard: ProductCard){
-        productCards.add(productCard)
+        _productCards.add(productCard)
     }
 
     private fun loadAllCards(): MutableList<ProductCard> {
@@ -78,7 +80,7 @@ object ProductCardsRepository {
 
     fun saveChanges(){
         val content = StringBuilder()
-        for (productCard in productCards){
+        for (productCard in _productCards){
             content.append("${productCard.name}%${productCard.brand}%${productCard.price}%")
             when (productCard) {
                 is Food -> { //Comprobamos si pertenece a tipo Food
@@ -101,10 +103,9 @@ object ProductCardsRepository {
     }
 
     fun removeProductCard(name: String){
-        val cards: MutableList<ProductCard> = loadAllCards()
-        for (card in productCards){
+        for (card in _productCards){
             if (card.name == name) {
-                productCards.remove(card)
+                _productCards.remove(card)
                 break
             }
         }
