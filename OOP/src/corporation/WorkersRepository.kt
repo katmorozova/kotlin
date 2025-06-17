@@ -18,10 +18,11 @@ object WorkersRepository {
     fun changeSalary(id: Int, salary: Int){
         //val workers = loadAllWorkers()
         //workersList.writeText("")//reescribimos texto en file
-        for (employee in _employees){
+        for ((index:Int, employee: Worker) in _employees.withIndex()){
             if (employee.id == id) {
                 //employee.setSalary(salary)
                 val newWorker = employee.copy(salary = salary)
+                _employees[index] = newWorker
             }
             //saveWorkerListToFile(employee)
         }
