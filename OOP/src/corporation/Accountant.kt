@@ -143,6 +143,10 @@ class Accountant(
         workersRepository.registerNewEmployee(worker)
     }
 
+    override fun copy(): Worker {
+        return Accountant(id, name, age, salary)
+    }
+
     private fun fireWorker(){
         println("Enter id for fire a worker: ")
         val id = readln().toInt()

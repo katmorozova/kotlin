@@ -4,10 +4,12 @@ abstract class Worker(
     val id: Int,
     val name: String,
     val age: Int = 0,
-    private var salary: Int = 15000,
+    val salary: Int = 15000,
     val workerType: WorkerType
     ) {
 
+    abstract fun copy(): Worker
+/*
     fun getSalary():Int = this.salary
 
     fun setSalary(salary: Int){
@@ -17,6 +19,8 @@ abstract class Worker(
             this.salary = salary
         }
     }
+
+ */
     //var salary: Int = 15000
 /*
         set(value) {
