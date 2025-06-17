@@ -2,7 +2,7 @@ package corporation
 
 import java.io.File
 
-class ProductCardsRepository {
+object ProductCardsRepository {
 
     private val file = File("product_cards.txt")
     val productCards = loadAllCards()
