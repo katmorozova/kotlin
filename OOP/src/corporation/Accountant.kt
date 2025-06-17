@@ -143,7 +143,7 @@ class Accountant(
         workersRepository.registerNewEmployee(worker)
     }
 
-    override fun copy(salary: Int): Worker {
+    override fun copy(salary: Int): Accountant {
         return Accountant(this.id, this.name, this.age, salary)
     }
 

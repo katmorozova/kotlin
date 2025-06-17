@@ -21,7 +21,7 @@ object WorkersRepository {
         for (employee in _employees){
             if (employee.id == id) {
                 //employee.setSalary(salary)
-                val newWorker = employee.copy()
+                val newWorker = employee.copy(salary = salary)
             }
             //saveWorkerListToFile(employee)
         }
