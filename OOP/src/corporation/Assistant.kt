@@ -6,6 +6,10 @@ class Assistant(
     age: Int,
     salary: Int): Worker(id = id, name = name, age = age,salary, WorkerType.ASSISTANT), Cleaner, Supplier {
 
+    override fun copy(salary: Int): Assistant {
+        return Assistant(this.id, this.name, this.age, salary)
+    }
+
     override fun clean() {
         println("My position is Assistant. I'm cleaning workplace...")
     }
