@@ -9,8 +9,8 @@ class Consultant(
     salary: Int
 ): Worker(id = id, name = name, age = age, salary, WorkerType.CONSULTANT), Cleaner {
 
-    override fun copy(salary: Int): Consultant {
-        return Consultant(this.id, this.name, this.age, salary)
+    override fun copy(salary: Int, age: Int): Consultant {
+        return Consultant(this.id, this.name, age, salary)
     }
 
     override fun clean() {

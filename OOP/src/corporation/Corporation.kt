@@ -61,9 +61,9 @@ fun main() {
  */
     //val repository = WorkersRepository
     //println("Creating accountant")
-    val workers = WorkersRepository.employees
-    for(worker in workers){
-        worker.work()
+    val employees = WorkersRepository.employees
+    for(employee in employees){
+        employee.work()
     }
 
     //val accountant = Accountant(1, name = "Helen", 34, 60000)

@@ -46,6 +46,7 @@ class Accountant(
                 OperationType.FIRE_EMPLOYEE -> fireWorker()
                 OperationType.SHOW_ALL_EMPLOYEES -> showAllWorkers()
                 OperationType.CHANGE_SALARY -> changeSalary()
+                OperationType.CHANGE_AGE -> changeAge()
             }
         }
     }
@@ -143,8 +144,8 @@ class Accountant(
         workersRepository.registerNewEmployee(worker)
     }
 
-    override fun copy(salary: Int): Accountant {
-        return Accountant(this.id, this.name, this.age, salary)
+    override fun copy(salary: Int, age: Int): Accountant {
+        return Accountant(this.id, this.name, age, salary)
     }
 
     private fun fireWorker(){
@@ -159,5 +160,13 @@ class Accountant(
         println("Enter new salary: ")
         val salary = readln().toInt()
         workersRepository.changeSalary(id,salary)
+    }
+
+    private fun changeAge(){
+        println("Enter worker's id to change age: ")
+        val id = readln().toInt()
+        println("Enter new age: ")
+        val age = readln().toInt()
+        workersRepository.changeAge(id,age)
     }
 }

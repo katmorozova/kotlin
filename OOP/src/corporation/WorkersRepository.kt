@@ -27,6 +27,14 @@ object WorkersRepository {
             //saveWorkerListToFile(employee)
         }
     }
+    fun changeAge(id: Int, age: Int){
+        for ((index:Int, employee: Worker) in _employees.withIndex()){
+            if (employee.id == id) {
+                val newWorker = employee.copy(age = age)
+                _employees[index] = newWorker
+            }
+        }
+    }
 
 /*
     private fun saveWorkerListToFile(worker: Worker) {
@@ -51,7 +59,7 @@ object WorkersRepository {
     }
 
     private fun loadAllWorkers(): MutableList<Worker> {
-        println("loadAllWorkers")
+        //println("loadAllWorkers")
 
         val workers = mutableListOf<Worker>()//creado collecion
         if(!workersList.exists()) workersList.createNewFile()

@@ -8,7 +8,9 @@ abstract class Worker(
     val workerType: WorkerType
     ) {
 
-    abstract fun copy(salary: Int): Worker
+    abstract fun copy(salary: Int = this.salary, age: Int = this.age): Worker
+
+
 /*
     fun getSalary():Int = this.salary
 

@@ -6,8 +6,8 @@ class Assistant(
     age: Int,
     salary: Int): Worker(id = id, name = name, age = age,salary, WorkerType.ASSISTANT), Cleaner, Supplier {
 
-    override fun copy(salary: Int): Assistant {
-        return Assistant(this.id, this.name, this.age, salary)
+    override fun copy(salary: Int, age: Int): Assistant {
+        return Assistant(this.id, this.name, age, salary)
     }
 
     override fun clean() {
