@@ -10,9 +10,14 @@ object WorkersRepository {
 
         get() = _employees.toList()
 
-    fun registerNewEmployee(worker: Worker){
+    fun registerNewEmployee(newWorker: Worker){
         //saveWorkerListToFile(worker)
-        _employees.add(worker)
+        for (employee in _employees){
+            if (employee == newWorker){
+
+            }
+        }
+        _employees.add(newWorker)
     }
 
     fun changeSalary(id: Int, salary: Int){
