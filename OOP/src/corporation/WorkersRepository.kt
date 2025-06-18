@@ -14,7 +14,7 @@ object WorkersRepository {
         //saveWorkerListToFile(worker)
         for (employee in _employees){
             if (employee == newWorker){
-
+                return
             }
         }
         _employees.add(newWorker)

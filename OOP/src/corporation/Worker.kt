@@ -10,19 +10,28 @@ abstract class Worker(
 
     abstract fun copy(salary: Int = this.salary, age: Int = this.age): Worker
 
+    override fun equals(other: Any?): Boolean {
+        if(other !is Worker) return false
 
-/*
-    fun getSalary():Int = this.salary
-
-    fun setSalary(salary: Int){
-        if (salary < this.salary){
-            println("The new salary is too small... ")
-        }else {
-            this.salary = salary
-        }
+        return id == other.id &&
+                name == other.name &&
+                age == other.age &&
+                salary == other.salary &&
+                workerType == other.workerType
     }
 
- */
+    /*
+        fun getSalary():Int = this.salary
+
+        fun setSalary(salary: Int){
+            if (salary < this.salary){
+                println("The new salary is too small... ")
+            }else {
+                this.salary = salary
+            }
+        }
+
+     */
     //var salary: Int = 15000
 /*
         set(value) {
