@@ -39,7 +39,7 @@ object WorkersRepository {
     fun saveChanges(){
         val content = StringBuilder()
         for (employee in _employees){
-            content.append("${employee.id}%${employee.name}%${employee.age}%${employee.getSalary()}%${employee.workerType}\n")
+            content.append("${employee.id}%${employee.name}%${employee.age}%${employee.salary}%${employee.workerType}\n")
         }
         workersList.writeText(content.toString())
         /*
