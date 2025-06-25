@@ -1,7 +1,16 @@
 package profile
 
 fun main() {
+    val person1 = Person("John", "Smith",174, 56)
+    val person2 = Person("John", "Smith",174, 56)
+    val person3 = person1.copy("Nick")
 
+    val people = setOf(person1,person2,person3)
+
+    for (person in people){
+        println(person)
+    }
+/*
     println("Input 1st name")
     val firstName = readln()
 
@@ -43,6 +52,8 @@ fun main() {
     println(first.fullName)
     println(second.fullName)
 
+
+
     //first.init(name = firstName, age = firstAge, height = firstHeight, weight = firstWeight)
     //first.init(name = secondName, age = secondAge, height = secondHeight, weight = secondWeight)
 
@@ -61,7 +72,7 @@ fun main() {
 
     //second.sayHello()
     //first.run()
-
+*/
 
 
 }
