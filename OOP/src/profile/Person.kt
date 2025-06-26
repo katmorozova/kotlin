@@ -1,6 +1,6 @@
 package profile
 
-class Person (
+data class Person (
 
     val name: String,
     var lastName:String,
@@ -57,6 +57,7 @@ class Person (
         }
     }
 
+    /*
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Person) return false
@@ -81,7 +82,9 @@ class Person (
         return "Person(name='$name', lastName='$lastName', height=$height, weight=$weight)"
     }
 
+     */
 
+/*
    fun copy(
        name: String = this.name,
        lastName: String = this.lastName,
@@ -89,6 +92,8 @@ class Person (
        weight: Int = this.weight
    ) = Person(name, lastName, height, weight)
 
+
+ */
 
 
 
