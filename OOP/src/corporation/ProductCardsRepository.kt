@@ -42,12 +42,12 @@ object ProductCardsRepository {
         if (!file.exists()) file.createNewFile()
 
         val content = file.readText().trim()
-/*
+
         if (content.isEmpty()){
             return cards
         }
 
- */
+
 
         val cardsAsString = content.split("\n")
         for(cardAsString in cardsAsString){
