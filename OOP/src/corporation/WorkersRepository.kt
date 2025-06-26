@@ -12,31 +12,40 @@ object WorkersRepository {
 
     fun registerNewEmployee(newWorker: Worker){
         //saveWorkerListToFile(worker)
+        /*
         for (employee in _employees){
             if (employee == newWorker){
                 return
             }
         }
+
+         */
         _employees.add(newWorker)
     }
 
     fun changeSalary(id: Int, salary: Int){
         //val workers = loadAllWorkers()
         //workersList.writeText("")//reescribimos texto en file
-        for ((index:Int, employee: Worker) in _employees.withIndex()){
+        for (employee: Worker in _employees){
             if (employee.id == id) {
                 //employee.setSalary(salary)
                 val newWorker = employee.copy(salary = salary)
-                _employees[index] = newWorker
+                //_employees[index] = newWorker
+                _employees.remove(employee)
+                _employees.add(newWorker)
+                break
             }
             //saveWorkerListToFile(employee)
         }
     }
     fun changeAge(id: Int, age: Int){
-        for ((index:Int, employee: Worker) in _employees.withIndex()){
+        for (employee: Worker in _employees){
             if (employee.id == id) {
                 val newWorker = employee.copy(age = age)
-                _employees[index] = newWorker
+                //_employees[index] = newWorker
+                _employees.remove(employee)
+                _employees.add(newWorker)
+                break
             }
         }
     }
@@ -63,10 +72,10 @@ object WorkersRepository {
          */
     }
 
-    private fun loadAllWorkers(): MutableList<Worker> {
+    private fun loadAllWorkers(): MutableSet<Worker> {
         //println("loadAllWorkers")
 
-        val workers = mutableListOf<Worker>()//creado collecion
+        val workers = mutableSetOf<Worker>()//creado collecion
         if(!workersList.exists()) workersList.createNewFile()
 
         val content = workersList.readText().trim()
