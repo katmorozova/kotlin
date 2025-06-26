@@ -16,8 +16,10 @@ data class Food(
     }
 
  */
-
+/*
     override fun toString(): String {
         return "Name: $name Brand: $brand Price: $price Product type: ${productType.title} Caloric: $caloric\n"
     }
+
+ */
 }

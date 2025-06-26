@@ -16,8 +16,10 @@ data class Shoes (
     }
 
  */
-
+/*
     override fun toString(): String {
         return "Name: $name Brand: $brand Price: $price Product type: ${productType.title} Size: $size\\n"
     }
+
+ */
 }
