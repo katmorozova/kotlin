@@ -1,11 +1,11 @@
 package corporation
 
 abstract class Worker(
-    val id: Int,
-    val name: String,
-    val age: Int = 0,
-    val salary: Int = 15000,
-    val workerType: WorkerType
+    open val id: Int,
+    open val name: String,
+    open val age: Int = 0,
+    open val salary: Int = 15000,
+    open val workerType: WorkerType
     ) {
 
     abstract fun copy(salary: Int = this.salary, age: Int = this.age): Worker
