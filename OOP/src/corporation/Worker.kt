@@ -5,11 +5,12 @@ abstract class Worker(
     open val name: String,
     open val age: Int = 0,
     open val salary: Int = 15000,
-    open val workerType: WorkerType
+    val workerType: WorkerType
     ) {
 
     abstract fun copy(salary: Int = this.salary, age: Int = this.age): Worker
 
+    /*
     override fun equals(other: Any?): Boolean {
         if(other !is Worker) return false
 
@@ -19,6 +20,8 @@ abstract class Worker(
                 salary == other.salary &&
                 workerType == other.workerType
     }
+
+     */
 
 
 
@@ -60,6 +63,7 @@ abstract class Worker(
     open fun printInfo(){
         print(this)
     }
+    /*
 
     override fun toString(): String {
         return "Id: $id Name: $name Age: $age Worker type: $workerType Salary: $salary\n"
@@ -73,4 +77,6 @@ abstract class Worker(
         result = 31 * result + workerType.hashCode()
         return result
     }
+
+     */
 }
