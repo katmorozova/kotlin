@@ -1,9 +1,10 @@
 package corporation
 
-class Shoes (name: String,
-             brand: String,
-             price: Int,
-             val size: Int
+data class Shoes (
+    override val name: String,
+    override val brand: String,
+    override val price: Int,
+    val size: Int
         ): ProductCard(name, brand, price, ProductType.SHOES) {
 
 

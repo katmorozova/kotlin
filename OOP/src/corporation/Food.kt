@@ -1,8 +1,9 @@
 package corporation
 
-class Food(name: String,
-           brand: String,
-           price: Int,
+data class Food(
+    override val name: String,
+    override val brand: String,
+    override val price: Int,
            val caloric: Int
 ): ProductCard(name, brand, price, ProductType.FOOD) {
 

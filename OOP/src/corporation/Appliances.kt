@@ -1,8 +1,9 @@
 package corporation
 
-class Appliances(name: String,
-                 brand: String,
-                 price: Int,
+data class Appliances(
+    override val name: String,
+    override val brand: String,
+    override val price: Int,
                  val power: Int
 ): ProductCard(name, brand, price, ProductType.APPLIANCES) {
 
