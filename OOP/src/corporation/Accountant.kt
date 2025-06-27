@@ -11,6 +11,11 @@ data class Accountant(
     private val workersRepository = WorkersRepository
     private val productCardsRepository = ProductCardsRepository
 
+
+    override fun copy(id: Int, name: String, age: Int, salary: Int, workerType: WorkerType): Worker {
+        return copy(id = id, name = name, age = age, salary = salary)
+    }
+
     override fun clean() {
         println("My position is Accountant. I'm cleaning workplace...")
     }
@@ -142,10 +147,6 @@ data class Accountant(
             WorkerType.CONSULTANT -> Consultant(id, name, age, salary)
         }
         workersRepository.registerNewEmployee(worker)
-    }
-
-    override fun copy(salary: Int, age: Int): Accountant {
-        return Accountant(this.id, this.name, age, salary)
     }
 
     private fun fireWorker(){

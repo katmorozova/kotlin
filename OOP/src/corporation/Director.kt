@@ -7,8 +7,8 @@ data class Director (
     override val salary: Int
 ): Worker(id = id, name = name, age = age, salary, WorkerType.DIRECTOR), Supplier {
 
-    override fun copy(salary: Int, age: Int): Director {
-        return Director(this.id, this.name, age, salary)
+    override fun copy(id: Int, name: String, age: Int, salary: Int, workerType: WorkerType): Worker {
+        return copy(id = id, name = name, age = age, salary = salary)
     }
 
     override fun buyThings() {
