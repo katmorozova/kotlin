@@ -1,6 +1,10 @@
 package corporation
 
 fun main() {
+
+    val assistant = WorkersRepository.findAssistant()
+    assistant?.printInfo()
+
     /*
     val assistant: corporation.Assistant = corporation.Assistant()
     assistant.bringCoffee(5, "cafe con leche")

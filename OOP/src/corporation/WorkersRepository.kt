@@ -18,9 +18,28 @@ object WorkersRepository {
                 return
             }
         }
-
          */
         _employees.add(newWorker)
+    }
+
+    fun findAssistant(): Assistant? {
+        for (worker in _employees){
+            if (worker is Assistant){
+                return worker
+            }
+        }
+        //val assistant: Assistant? = null
+        //return assistant
+        return null
+    }
+
+    fun findDirector(): Director? {
+        for (worker in _employees){
+            if (worker is Director){
+                return worker
+            }
+        }
+        return null
     }
 
     fun changeSalary(id: Int, salary: Int){
