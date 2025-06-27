@@ -5,6 +5,11 @@ fun main() {
     val assistant = WorkersRepository.findAssistant()
     assistant?.printInfo()
 
+    val director = WorkersRepository.findDirector()
+    director?.printInfo()
+    if (assistant != null) {
+        director?.takeCoffee(assistant)
+    }
     /*
     val assistant: corporation.Assistant = corporation.Assistant()
     assistant.bringCoffee(5, "cafe con leche")
