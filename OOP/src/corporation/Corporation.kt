@@ -10,6 +10,9 @@ fun main() {
     if (assistant != null) {
         director?.takeCoffee(assistant)
     }
+    val directorSalary = director?.salary ?: 0 //operador Elvis -> ?:
+    val assistantSalary = assistant?.salary ?: 0
+    val sum = directorSalary + assistantSalary
     /*
     val assistant: corporation.Assistant = corporation.Assistant()
     assistant.bringCoffee(5, "cafe con leche")
