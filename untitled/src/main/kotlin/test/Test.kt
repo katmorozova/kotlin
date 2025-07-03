@@ -1,14 +1,18 @@
 package org.example.test
 
+import kotlinx.serialization.json.Json
 import java.io.File
 
 fun main() {
-    val file = File("items.txt")
+    val file = File("items.json")
     writeToFile(file)
+    /*
     val items = readFromFile(file)
     for(item in items){
         println(item)
     }
+
+     */
 
 
 }
@@ -39,8 +43,11 @@ fun writeToFile(file: File){
         items.add(item)
     }
 
-    for (item in items){
+    //for (item in items){
         //println(item)
-        file.appendText("${item.id}%${item.name}\n")
-    }
+        //file.appendText("${item.id}%${item.name}\n")
+
+    //}
+    val itemsAsString = Json.encodeToString(items)
+    file.writeText(itemsAsString)
 }
