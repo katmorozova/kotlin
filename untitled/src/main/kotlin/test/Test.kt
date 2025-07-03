@@ -5,22 +5,22 @@ import java.io.File
 
 fun main() {
     val file = File("items.json")
-    writeToFile(file)
-    /*
+    //writeToFile(file)
+
     val items = readFromFile(file)
     for(item in items){
         println(item)
     }
 
-     */
-
 
 }
 
 fun readFromFile(file: File): List<Item> {
-    val items = mutableListOf<Item>()
+    //val items = mutableListOf<Item>()
     val content = file.readText().trim()
-    val itemsAsString = content.split("\n")
+    //val itemsAsString = content.split("\n")
+    return Json.decodeFromString<List<Item>>(content)
+   /*
     for (itemAsString in itemsAsString){
         val properties = itemAsString.split("%")
         val id = properties[0].toInt()
@@ -28,7 +28,9 @@ fun readFromFile(file: File): List<Item> {
         val item = Item(id, name)
         items.add(item)
     }
-    return items
+
+    */
+    //return items
 }
 
 fun writeToFile(file: File){
