@@ -1,5 +1,11 @@
 package org.example.profile
 
+import kotlinx.serialization.SerialName
+
 enum class Gender {
-    MALE, FEMALE
+    @SerialName("Male")
+    MALE,
+
+    @SerialName("Female")
+    FEMALE
 }
