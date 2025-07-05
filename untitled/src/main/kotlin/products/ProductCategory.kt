@@ -8,7 +8,7 @@ enum class ProductCategory {
 
     @SerialName("Electronics") ELECTRONICS,
     @SerialName("Clothing") CLOTHING,
-    @SerialName("Home_Goods")HOME_GOODS,
-    @SerialName("Beauty")BEAUTY,
-    @SerialName("Sports")SPORTS
+    @SerialName("Home Goods") HOME_GOODS,
+    @SerialName("Beauty") BEAUTY,
+    @SerialName("Sports") SPORTS
 }
