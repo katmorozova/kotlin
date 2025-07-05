@@ -3,7 +3,17 @@ package org.example.test
 import kotlinx.serialization.json.Json
 import java.io.File
 
+
+val numbers = mutableListOf<Int>()
+
 fun main() {
+
+
+    //println(sum(5, 10))
+    val file = File("test.txt")
+    val number = file.readText().trim().toInt()
+    println(sum(5, number))
+    /*
     val file = File("items.json")
     //writeToFile(file)
 
@@ -12,6 +22,7 @@ fun main() {
         println(item)
     }
 
+     */
 
 }
 
@@ -52,4 +63,25 @@ fun writeToFile(file: File){
     //}
     val itemsAsString = Json.encodeToString(items)
     file.writeText(itemsAsString)
+}
+/*
+fun sum(a:Int): Int {
+    val file = File("test.txt")
+    val number = file.readText().trim().toInt()
+    return a + number
+}
+
+ */
+
+/*
+fun sum(a:Int, b: Int): Int {
+    return a + b
+}
+
+ */
+
+fun sum(a:Int, b: Int): Int {
+    val result = a + b
+    numbers.add(result)
+    return result
 }
