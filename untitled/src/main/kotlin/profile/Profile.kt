@@ -5,8 +5,51 @@ import java.io.File
 
 fun main() {
     val profiles = ProfilesRepository.profiles
-    for (person in profiles){
+    var filtered = filter(profiles, ConditionOlderThan25())
+    for (person in filtered){
         println(person)
     }
 }
+
+fun filter(profiles: List<Person>, condition: Condition): List<Person> {
+    val result = mutableListOf<Person>()
+    for (person in profiles){
+        if (condition.isSuitable(person)){
+            result.add(person)
+        }
+    }
+    return result
+}
+/*
+fun filterOlderThan25(profiles: List<Person>): List<Person> {
+    val result = mutableListOf<Person>()
+    for (person in profiles){
+        if (person.age > 25 ){
+            result.add(person)
+        }
+    }
+    return result
+}
+
+fun filterStartsWithA(profiles: List<Person>): List<Person> {
+    val result = mutableListOf<Person>()
+    for (person in profiles){
+        if (person.firstName.startsWith("A") ){
+            result.add(person)
+        }
+    }
+    return result
+}
+
+fun filterMale(profiles: List<Person>): List<Person> {
+    val result = mutableListOf<Person>()
+    for (person in profiles){
+        if (person.gender == Gender.MALE){
+            result.add(person)
+        }
+    }
+    return result
+}
+
+ */
 
