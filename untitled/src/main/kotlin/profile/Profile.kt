@@ -10,8 +10,21 @@ fun main() {
             return person.age > 25
         }
     })
-    filtered = filter(profiles, ConditionMale())
-    filtered = filter(profiles, ConditionStartsWithA())
+    filtered = filter(profiles, object : Condition{
+        override fun isSuitable(person: Person): Boolean {
+            return person.gender == Gender.MALE
+        }
+    })
+    filtered = filter(filtered, object : Condition{
+        override fun isSuitable(person: Person): Boolean {
+            return person.firstName.startsWith("A")
+        }
+    })
+    filtered = filter(filtered, object : Condition{
+        override fun isSuitable(person: Person): Boolean {
+            return person.age < 30
+        }
+    })
     for (person in filtered){
         println(person)
     }

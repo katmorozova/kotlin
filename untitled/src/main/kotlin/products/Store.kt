@@ -5,9 +5,21 @@ import products.ProductCard
 fun main() {
 
     val products = ProductsRepository.products
-    var filtered = filter(products, ConditionHighPrice())
-    filtered = filter(filtered, ConditionSportsCategory())
-    filtered = filter(filtered, ConditionHighRanking())
+    var filtered = filter(products, object : Condition{
+        override fun isSuitable(productCard: ProductCard): Boolean {
+            return productCard.productPrice > 500
+        }
+    })
+    filtered = filter(filtered, object : Condition {
+        override fun isSuitable(productCard: ProductCard): Boolean {
+            return productCard.productCategory == ProductCategory.SPORTS
+        }
+    })
+    filtered = filter(filtered, object : Condition{
+        override fun isSuitable(productCard: ProductCard): Boolean {
+            return productCard.productRating > 4
+        }
+    })
 
     for (productCard in filtered){
         println(productCard)
