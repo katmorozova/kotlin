@@ -5,11 +5,7 @@ import java.io.File
 
 fun main() {
     val profiles = ProfilesRepository.profiles
-    var filtered = filter(profiles, object : Condition{
-        override fun isSuitable(person: Person): Boolean {
-            return person.age > 25
-        }
-    })
+    var filtered = filter(profiles, {person: Person -> person.age > 25})
     filtered = filter(profiles, object : Condition{
         override fun isSuitable(person: Person): Boolean {
             return person.gender == Gender.MALE
@@ -30,6 +26,16 @@ fun main() {
     }
 }
 
+fun filter(profiles: List<Person>, isSuitable: (Person) -> Boolean): List<Person> {
+    val result = mutableListOf<Person>()
+    for (person in profiles){
+        if (isSuitable(person)){
+            result.add(person)
+        }
+    }
+    return result
+}
+/*
 fun filter(profiles: List<Person>, condition: Condition): List<Person> {
     val result = mutableListOf<Person>()
     for (person in profiles){
@@ -39,6 +45,14 @@ fun filter(profiles: List<Person>, condition: Condition): List<Person> {
     }
     return result
 }
+
+ */
+
+
+
+
+
+
 /*
 fun filterOlderThan25(profiles: List<Person>): List<Person> {
     val result = mutableListOf<Person>()
