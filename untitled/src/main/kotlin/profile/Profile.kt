@@ -6,6 +6,8 @@ import java.io.File
 fun main() {
     val profiles = ProfilesRepository.profiles
     var filtered = filter(profiles, ConditionOlderThan25())
+    filtered = filter(profiles, ConditionMale())
+    filtered = filter(profiles, ConditionStartsWithA())
     for (person in filtered){
         println(person)
     }
