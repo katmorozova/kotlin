@@ -5,7 +5,11 @@ import java.io.File
 
 fun main() {
     val profiles = ProfilesRepository.profiles
-    var filtered = filter(profiles, ConditionOlderThan25())
+    var filtered = filter(profiles, object : Condition{
+        override fun isSuitable(person: Person): Boolean {
+            return person.age > 25
+        }
+    })
     filtered = filter(profiles, ConditionMale())
     filtered = filter(profiles, ConditionStartsWithA())
     for (person in filtered){
