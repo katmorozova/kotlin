@@ -32,6 +32,10 @@ fun main() {
     for (person in filtered){
         println(person)
     }
+    val transformed = transfom(filtered)
+    for (person in transformed){
+        println(person)
+    }
 }
 
 fun filter(profiles: List<Person>, isSuitable: (Person) -> Boolean): List<Person> {
@@ -43,6 +47,15 @@ fun filter(profiles: List<Person>, isSuitable: (Person) -> Boolean): List<Person
     }
     return result
 }
+
+fun transfom(profiles: List<Person>): List<String>{
+    val result = mutableListOf<String>()
+    for (person in profiles){
+        result.add(person.firstName)
+    }
+    return result
+}
+
 /*
 fun filter(profiles: List<Person>, condition: Condition): List<Person> {
     val result = mutableListOf<Person>()
