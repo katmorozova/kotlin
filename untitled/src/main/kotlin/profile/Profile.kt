@@ -35,7 +35,9 @@ fun main() {
     val names = transfom(filtered) {it.firstName}
     val lastNames = transfom(filtered) {it.lastName}
     val fullNames = transfom(filtered) {"${it.firstName} ${it.lastName}"}
-    for (person in fullNames){
+    val ages = transfom(filtered) {it.age}
+    val agesPlusOne = transfom(filtered) {it.copy(age = it.age + 1)}
+    for (person in ages){
         println(person)
     }
 }
@@ -50,6 +52,14 @@ fun filter(profiles: List<Person>, isSuitable: (Person) -> Boolean): List<Person
     return result
 }
 
+fun <R> transfom(profiles: List<Person>, operation: (Person) -> R): List<R>{
+    val result = mutableListOf<R>()
+    for (person in profiles){
+        result.add(operation(person))
+    }
+    return result
+}
+/*
 fun transfom(profiles: List<Person>, operation: (Person) -> String): List<String>{
     val result = mutableListOf<String>()
     for (person in profiles){
@@ -57,6 +67,8 @@ fun transfom(profiles: List<Person>, operation: (Person) -> String): List<String
     }
     return result
 }
+
+ */
 
 /*
 fun filter(profiles: List<Person>, condition: Condition): List<Person> {
