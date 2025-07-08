@@ -32,8 +32,10 @@ fun main() {
     for (person in filtered){
         println(person)
     }
-    val transformed = transfom(filtered)
-    for (person in transformed){
+    val names = transfom(filtered) {it.firstName}
+    val lastNames = transfom(filtered) {it.lastName}
+    val fullNames = transfom(filtered) {"${it.firstName} ${it.lastName}"}
+    for (person in fullNames){
         println(person)
     }
 }
@@ -48,10 +50,10 @@ fun filter(profiles: List<Person>, isSuitable: (Person) -> Boolean): List<Person
     return result
 }
 
-fun transfom(profiles: List<Person>): List<String>{
+fun transfom(profiles: List<Person>, operation: (Person) -> String): List<String>{
     val result = mutableListOf<String>()
     for (person in profiles){
-        result.add(person.firstName)
+        result.add(operation(person))
     }
     return result
 }
