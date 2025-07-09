@@ -5,11 +5,16 @@ import java.io.File
 
 fun main() {
     val profiles = ProfilesRepository.profiles
+        .filter { it.age > 25 }
+        .filter { it.gender == Gender.MALE }
+        .filter { it.firstName.startsWith("A") }
+        .filter { it.age < 30 }
+        .transfom { it.copy(age = it.age + 1) }
     //var filtered = filter(profiles, {person: Person -> person.age > 25})
-    var filtered = filter(profiles) {it.age > 25}
-    filtered = filter(filtered) {it.gender == Gender.MALE }
-    filtered = filter(filtered) {it.firstName.startsWith("A") }
-    filtered = filter(filtered) {it.age < 30}
+    //var filtered = filter(profiles) {it.age > 25}
+    //filtered = filter(filtered) {it.gender == Gender.MALE }
+    //filtered = filter(filtered) {it.firstName.startsWith("A") }
+    //filtered = filter(filtered) {it.age < 30}
 
     /*
     filtered = filter(profiles, object : Condition{
@@ -29,9 +34,11 @@ fun main() {
     })
 
      */
-    for (person in filtered){
+   // val transformed = transfom(profiles) {it.copy(age = it.age + 1)}
+    for (person in profiles){
         println(person)
     }
+    /*
     val names = transfom(filtered) {it.firstName}
     val lastNames = transfom(filtered) {it.lastName}
     val fullNames = transfom(filtered) {"${it.firstName} ${it.lastName}"}
@@ -40,6 +47,8 @@ fun main() {
     for (person in ages){
         println(person)
     }
+
+     */
 }
 
 
@@ -65,9 +74,9 @@ fun filter(profiles: List<Person>, isSuitable: (Person) -> Boolean): List<Person
 
  */
 
-fun <R> transfom(profiles: List<Person>, operation: (Person) -> R): List<R>{
+fun <R> List<Person>.transfom(operation: (Person) -> R): List<R>{
     val result = mutableListOf<R>()
-    for (person in profiles){
+    for (person in this){
         result.add(operation(person))
     }
     return result
