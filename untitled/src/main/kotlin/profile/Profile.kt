@@ -9,7 +9,10 @@ fun main() {
         .filter { it.gender == Gender.MALE }
         .filter { it.firstName.startsWith("A") }
         .filter { it.age < 30 }
-        .transform { it.copy(age = it.age + 1) }
+        .toSet()
+        .map { it.copy(age = it.age + 1) }
+        .transform { it.firstName }
+
     for (person in profiles){
         println(person)
     }
