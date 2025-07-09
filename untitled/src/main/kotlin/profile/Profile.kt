@@ -42,6 +42,17 @@ fun main() {
     }
 }
 
+
+fun List<Person>.filter(isSuitable: (Person) -> Boolean): List<Person> {
+    val result = mutableListOf<Person>()
+    for (person in this){
+        if (isSuitable(person)){
+            result.add(person)
+        }
+    }
+    return result
+}
+/*
 fun filter(profiles: List<Person>, isSuitable: (Person) -> Boolean): List<Person> {
     val result = mutableListOf<Person>()
     for (person in profiles){
@@ -51,6 +62,8 @@ fun filter(profiles: List<Person>, isSuitable: (Person) -> Boolean): List<Person
     }
     return result
 }
+
+ */
 
 fun <R> transfom(profiles: List<Person>, operation: (Person) -> R): List<R>{
     val result = mutableListOf<R>()
