@@ -4,17 +4,22 @@ package org.example.products
 import products.ProductCard
 
 fun main() {
-
-    val products = ProductsRepository.products
     //products >500
     //product sport
     //product high ranking
 
-    var filtered = filter(products) { it.productCategory == ProductCategory.CLOTHING }
+    val products = ProductsRepository.products
+        //.filter { it.productPrice > 500 }
+        //.filter { it.productCategory == ProductCategory.SPORTS }
+        .filter { it.productCategory == ProductCategory.CLOTHING }
+        .transform { it.copy(productPrice = it.productPrice * 2) }
+        .transform { "${it.id} - ${it.productName} - ${it.productPrice}" }
+
+    //var filtered = filter(products) { it.productCategory == ProductCategory.CLOTHING }
     //var filtered = filter(products) { it.productPrice > 500 }
     //filtered = filter(filtered) {it.productCategory == ProductCategory.SPORTS }
-    filtered = transform(filtered) {it.copy(productPrice = it.productPrice * 2) }
-    val productNames = transform(filtered) {"${it.id} - ${it.productName} - ${it.productPrice}"}
+    //filtered = transform(filtered) {it.copy(productPrice = it.productPrice * 2) }
+    //val productNames = transform(filtered) {"${it.id} - ${it.productName} - ${it.productPrice}"}
     /*
     var filtered = filter(products, object : Condition{
         override fun isSuitable(productCard: ProductCard): Boolean {
@@ -34,14 +39,14 @@ fun main() {
 
      */
 
-    for (productCard in productNames){
+    for (productCard in products){
         println(productCard)
     }
 }
 
-fun filter(products: List<ProductCard>, isSuitable: (ProductCard) -> Boolean): List<ProductCard> {
+fun List<ProductCard>.filter(isSuitable: (ProductCard) -> Boolean): List<ProductCard> {
     val result = mutableListOf<ProductCard>()
-    for (productCard in products){
+    for (productCard in this){
         if (isSuitable(productCard)){
             result.add(productCard)
         }
@@ -49,9 +54,9 @@ fun filter(products: List<ProductCard>, isSuitable: (ProductCard) -> Boolean): L
     return result
 }
 
-fun <R> transform(products: List<ProductCard>, operation: (ProductCard) -> R): List<R> {
+fun <R> List<ProductCard>.transform(operation: (ProductCard) -> R): List<R> {
     val result = mutableListOf<R>()
-    for (productCard: ProductCard in products){
+    for (productCard: ProductCard in this){
         result.add(operation(productCard))
     }
     return result
