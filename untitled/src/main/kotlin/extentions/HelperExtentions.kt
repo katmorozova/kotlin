@@ -2,7 +2,7 @@ package org.example.extentions
 
 import org.example.profile.Person
 
-fun <R, T> Iterable<T>.transform(operation: (T) -> R): List<R>{
+inline fun <R, T> Iterable<T>.transform(operation: (T) -> R): List<R>{
     val result = mutableListOf<R>()
     for (person in this){
         result.add(operation(person))
@@ -11,7 +11,7 @@ fun <R, T> Iterable<T>.transform(operation: (T) -> R): List<R>{
 }
 
 
-fun <T> Iterable<T>.filter(isSuitable: (T) -> Boolean): List<T> {
+inline fun <T> Iterable<T>.filter(isSuitable: (T) -> Boolean): List<T> {
     val result = mutableListOf<T>()
     for (item in this){
         if (isSuitable(item)){
