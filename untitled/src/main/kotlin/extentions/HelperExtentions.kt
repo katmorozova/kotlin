@@ -20,3 +20,7 @@ inline fun <T> Iterable<T>.filter(isSuitable: (T) -> Boolean): List<T> {
     }
     return result
 }
+
+inline fun <T, R> T.myLet(block: (T) -> R): R{
+    return block(this)
+}
