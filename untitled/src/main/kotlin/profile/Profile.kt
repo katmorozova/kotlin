@@ -14,6 +14,13 @@ fun main() {
         .map { it.copy(age = it.age + 1) }
         .forEach { println(it)}
 
+
+}
+
+fun showEmail(){
+    println("Enter id: ")
+    val id = readln().toInt()
+    ProfilesRepository.profiles.find { it.id == id } ?.let { println(it.email) } ?: println("Not found")
 }
 
 
