@@ -14,12 +14,3 @@ fun main() {
     }
 }
 
-fun List<ProductCard>.filter(isSuitable: (ProductCard) -> Boolean): List<ProductCard> {
-    val result = mutableListOf<ProductCard>()
-    for (productCard in this){
-        if (isSuitable(productCard)){
-            result.add(productCard)
-        }
-    }
-    return result
-}

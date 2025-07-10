@@ -19,14 +19,6 @@ fun main() {
 }
 
 
-fun List<Person>.filter(isSuitable: (Person) -> Boolean): List<Person> {
-    val result = mutableListOf<Person>()
-    for (person in this){
-        if (isSuitable(person)){
-            result.add(person)
-        }
-    }
-    return result
-}
+
 
 
