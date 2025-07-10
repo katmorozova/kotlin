@@ -5,6 +5,7 @@ import org.example.extentions.transform
 
 fun main() {
     ProfilesRepository.profiles
+        //.filter { it.age > 25 && it.gender == Gender.MALE }
         .filter { it.age > 25 }
         .filter { it.gender == Gender.MALE }
         .filter { it.firstName.startsWith("A") }
