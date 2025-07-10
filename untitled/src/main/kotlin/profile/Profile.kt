@@ -11,7 +11,7 @@ fun main() {
         .filter { it.age < 30 }
         .toSet()
         .map { it.copy(age = it.age + 1) }
-        .transform { it.firstName }
+        .map { it.firstName }
 
     for (person in profiles){
         println(person)
