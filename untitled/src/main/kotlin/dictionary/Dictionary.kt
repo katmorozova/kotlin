@@ -16,7 +16,7 @@ fun main() {
 fun showDescription(dictionary: List<Entry>) {
     while (true){
         println("Enter word or 0 to exit: ")
-        val input = readln()
+        val input = readln().lowercase()
         if (input == "0") break
         dictionary.find { it.value == input }?.let { println(it.description)}?: println("Not found")
     }
