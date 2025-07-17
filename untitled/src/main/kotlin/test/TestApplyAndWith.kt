@@ -1,6 +1,12 @@
 package org.example.test
 
+import org.example.extentions.myApply
+
 fun main() {
+
+
+}
+fun exampleApply(){
     /*
     val numbers = mutableListOf<Int>()
     while (true){
@@ -15,15 +21,21 @@ fun main() {
 
      */
 
-    mutableListOf<Int>().also {
+    mutableListOf<Int>().apply {
         while (true){
             println("Enter number or 0 to exit: ")
             val number = readln().toInt()
             if (number == 0) break
-            it.add(number)
+            add(number)
         }
     }.forEach { println(it)}
 
-
+    mutableListOf<Int>().apply {
+        while (true){
+            println("Enter number or 0 to exit: ")
+            val number = readln().toInt().takeIf { it != 0 } ?: break
+            add(number)
+        }
+    }.forEach { println(it)}
 
 }
