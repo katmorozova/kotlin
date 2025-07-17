@@ -1,5 +1,6 @@
 package org.example.dictionary
 
+import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import java.io.File
 import kotlin.time.measureTime
@@ -11,6 +12,7 @@ fun main() {
     val content = file.readText().trim()
     val dictionary = Json.decodeFromString<List<Entry>>(content)
     val dictionaryMap = dictionary.associate { it.value to it.description }
+    val mapAsString = Json.encodeToString(dictionaryMap)
     showDescription(dictionaryMap)
 
 }
