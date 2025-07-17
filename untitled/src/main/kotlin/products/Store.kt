@@ -15,6 +15,7 @@ fun main() {
         }.map { "${it.id} - ${it.productName} - ${it.productPrice}" }.myAlso {
             println("Print info")
         }
-        .forEach { println(it) }
+        //.forEach { println(it) }
+        .forEach (:: println)
 }
 
