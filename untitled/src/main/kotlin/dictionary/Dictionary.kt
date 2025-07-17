@@ -13,6 +13,7 @@ fun main() {
     val dictionary = Json.decodeFromString<List<Entry>>(content)
     val dictionaryMap = dictionary.associate { it.value to it.description }
     val mapAsString = Json.encodeToString(dictionaryMap)
+    file.writeText(mapAsString)
     showDescription(dictionaryMap)
 
 }
