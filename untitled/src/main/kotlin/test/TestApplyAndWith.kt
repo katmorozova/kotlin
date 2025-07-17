@@ -6,6 +6,24 @@ fun main() {
 
 
 }
+
+
+fun exampleWith(){
+    with(mutableListOf<Int>()) {
+        while (true){
+            println("Enter number or 0 to exit: ")
+            val number = readln().toInt().takeIf { it != 0 } ?: break
+            add(number)
+        }
+        println("Max: ${max()}")
+        println("Min: ${min()}")
+    }.forEach { println(it)}
+}
+
+
+
+
+
 fun exampleApply(){
     /*
     val numbers = mutableListOf<Int>()
