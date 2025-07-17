@@ -34,3 +34,7 @@ inline fun <T> T.myApply(block: T.() -> Unit): T{
     block(this)
     return this
 }
+
+inline fun <T, R> myWith(element: T, block: T.() -> R): R{
+    return element.block()
+}

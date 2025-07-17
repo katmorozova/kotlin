@@ -17,6 +17,7 @@ fun exampleWith(){
         }
         println("Max: ${max()}")
         println("Min: ${min()}")
+        this
     }.forEach { println(it)}
 }
 
