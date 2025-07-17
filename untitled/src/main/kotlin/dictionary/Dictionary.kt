@@ -10,11 +10,11 @@ fun main() {
 
     val file = File("dictionary.json")
     val content = file.readText().trim()
-    val dictionary = Json.decodeFromString<List<Entry>>(content)
-    val dictionaryMap = dictionary.associate { it.value to it.description }
-    val mapAsString = Json.encodeToString(dictionaryMap)
-    file.writeText(mapAsString)
-    showDescription(dictionaryMap)
+    val dictionary = Json.decodeFromString<Map<String,String>>(content)
+    //val dictionaryMap = dictionary.associate { it.value to it.description }
+    //val mapAsString = Json.encodeToString(dictionaryMap)
+    //file.writeText(mapAsString)
+    showDescription(dictionary)
 
 }
 
