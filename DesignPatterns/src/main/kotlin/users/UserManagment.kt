@@ -1,5 +1,5 @@
 package org.example.users
 
 fun main() {
-    UsersRepository("qwerty").users.forEach (::println)
+    UsersRepository().getInstance("qwerty").users.forEach (::println)
 }
